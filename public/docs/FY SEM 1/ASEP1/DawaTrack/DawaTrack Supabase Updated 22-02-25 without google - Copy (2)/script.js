@@ -203,7 +203,7 @@ function formatDateTime(dateTimeString) {
 
 // Update Google Calendar constants and initialization
 const GOOGLE_CLIENT_ID = '887243220092-3vj3tklll6meojqrcdcgdrc48568fnh5.apps.googleusercontent.com';
-const GOOGLE_API_KEY = 'AIzaSyBVlhaLcj5AkSnx9k3b6PUsAtPyOK1Gds0';
+const GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY';
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
 const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
@@ -1845,4 +1845,5 @@ async function handleFormSubmission(formData, modalId) {
         setButtonLoading(submitButton, false);
     }
 }
+
 
