@@ -1,6 +1,6 @@
 // Initialize Supabase client
 const supabaseUrl = 'https://illirjtiwudwybtxvvbf.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlsbGlyanRpd3Vkd3lidHh2dmJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyNzIxNTQsImV4cCI6MjA1NDg0ODE1NH0.WH-ZdjR9yvv1iii8pgGIi1IiCxT2hUyF1dyRrHXNG10'
+const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
 // Move previewImage function outside DOMContentLoaded
@@ -1845,3 +1845,4 @@ async function handleFormSubmission(formData, modalId) {
         setButtonLoading(submitButton, false);
     }
 }
+
