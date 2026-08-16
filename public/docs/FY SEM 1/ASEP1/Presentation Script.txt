@@ -1,0 +1,13 @@
+Hi everyone! As you saw earlier, our progress bar shows that our frontend is almost complete—90% done! Now, I’d like to walk you through the user interface of our app, DawaTrack.
+
+When you first launch the app, you’ll land on a visually appealing homepage that grabs the user’s attention right away. From there, clicking the 'Get Started' button takes you to the main page, called Track Medicine. This is where the magic happens!
+
+Here, users can do everything from tracking medicine expiry dates to setting check-up reminders. We’ve made sure to add convenient reminder buttons throughout the app. In the Medicine Expiry section, users can easily add the medicine name, expiry date, type of medicine, and set a custom reminder time based on their preferences.
+
+Next, in the Prescription Reminder section, users can add prescription details such as the name of the prescription, an image of the prescription, medicine names, and the dosage frequency (for example, '2 times a day'). And if a prescription has multiple medicines, we’ve added a function that allows users to quickly add the same set of options for each new medicine. Want to remove one? No problem! Just click the trash bin icon, and it’s gone. And of course, reminder preferences are available here as well.
+
+In the Check-Up Reminder section, users can enter their doctor’s name, clinic location, appointment date, and set reminder preferences for that too.
+
+At the top right corner of the app, there’s a user profile icon. Clicking on it shows all the user details, including emergency contacts!
+
+We’re proud of all the features we’ve incorporated so far, but there’s still work to be done to make the app even better. With that said, we’re about 90% done and can’t wait to bring you the finished product!

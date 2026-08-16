@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KhelConnect - Athletes - Sports Department of the Government of India">
+    <title>Athletes - KhelConnect</title>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/athletes.css">
+</head>
+<body>
+    <!-- Simple Header with Navigation -->
+    <header>
+        <img src="images/khel2.png" alt="KhelConnect Logo" class="logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="athletes.html" class="active">Athletes</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" id="login-link">Login</a>
+        </nav>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <h1>Our Athletes</h1>
+        <p>Meet India's top sports personalities and rising stars.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+
+        
+        <!-- Featured Athletes -->
+        <section class="mb-5">
+            <h3 class="section-title">Featured Athletes</h3>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card featured-athlete">
+                        <img src="images/athlete1.jpg" class="card-img-top" alt="Virat Kohli">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Virat Kohli</h4>
+                            <p class="card-text text-muted">Cricket</p>
+                            <div class="athlete-stats mb-3">
+                                <span class="badge bg-primary me-2">71 International Centuries</span>
+                                <span class="badge bg-success">ICC Cricketer of the Year</span>
+                            </div>
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#athleteModal1">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card featured-athlete">
+                        <img src="../images/athlete2.jpg" class="card-img-top" alt="PV Sindhu">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">PV Sindhu</h4>
+                            <p class="card-text text-muted">Badminton</p>
+                            <div class="athlete-stats mb-3">
+                                <span class="badge bg-warning text-dark me-2">Olympic Silver & Bronze</span>
+                                <span class="badge bg-success">World Champion</span>
+                            </div>
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#athleteModal2">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card featured-athlete">
+                        <img src="../images/athlete3.jpg" class="card-img-top" alt="Neeraj Chopra">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Neeraj Chopra</h4>
+                            <p class="card-text text-muted">Javelin Throw</p>
+                            <div class="athlete-stats mb-3">
+                                <span class="badge bg-warning text-dark me-2">Olympic Gold</span>
+                                <span class="badge bg-success">World Championship Silver</span>
+                            </div>
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#athleteModal3">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- All Athletes -->
+        <section>
+            <h3 class="section-title">All Athletes</h3>
+            <div class="row" id="athletes-container">
+                <!-- Cricket Athletes -->
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item cricket">
+                    <div class="card h-100">
+                        <img src="../images/athlete4.jpg" class="card-img-top" alt="Rohit Sharma">
+                        <div class="card-body">
+                            <h5 class="card-title">Rohit Sharma</h5>
+                            <p class="card-text text-muted">Cricket</p>
+                            <p><i class="fas fa-trophy"></i> Most T20I Centuries</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal4">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item cricket">
+                    <div class="card h-100">
+                        <img src="../images/athlete5.jpg" class="card-img-top" alt="Jasprit Bumrah">
+                        <div class="card-body">
+                            <h5 class="card-title">Jasprit Bumrah</h5>
+                            <p class="card-text text-muted">Cricket</p>
+                            <p><i class="fas fa-trophy"></i> ICC No.1 Ranked Bowler</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal5">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hockey Athletes -->
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item hockey">
+                    <div class="card h-100">
+                        <img src="../images/athlete6.jpg" class="card-img-top" alt="PR Sreejesh">
+                        <div class="card-body">
+                            <h5 class="card-title">PR Sreejesh</h5>
+                            <p class="card-text text-muted">Hockey</p>
+                            <p><i class="fas fa-trophy"></i> Olympic Bronze Medalist</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal6">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item hockey">
+                    <div class="card h-100">
+                        <img src="../images/athlete7.jpg" class="card-img-top" alt="Manpreet Singh">
+                        <div class="card-body">
+                            <h5 class="card-title">Manpreet Singh</h5>
+                            <p class="card-text text-muted">Hockey</p>
+                            <p><i class="fas fa-trophy"></i> FIH Player of the Year</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal7">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Athletics Athletes -->
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item athletics">
+                    <div class="card h-100">
+                        <img src="../images/athlete8.jpg" class="card-img-top" alt="Hima Das">
+                        <div class="card-body">
+                            <h5 class="card-title">Hima Das</h5>
+                            <p class="card-text text-muted">Athletics - Sprint</p>
+                            <p><i class="fas fa-trophy"></i> Asian Games Silver Medalist</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal8">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item athletics">
+                    <div class="card h-100">
+                        <img src="../images/athlete9.jpg" class="card-img-top" alt="Dutee Chand">
+                        <div class="card-body">
+                            <h5 class="card-title">Dutee Chand</h5>
+                            <p class="card-text text-muted">Athletics - Sprint</p>
+                            <p><i class="fas fa-trophy"></i> Asian Games Silver Medalist</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal9">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Badminton Athletes -->
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item badminton">
+                    <div class="card h-100">
+                        <img src="../images/athlete10.jpg" class="card-img-top" alt="Lakshya Sen">
+                        <div class="card-body">
+                            <h5 class="card-title">Lakshya Sen</h5>
+                            <p class="card-text text-muted">Badminton</p>
+                            <p><i class="fas fa-trophy"></i> World Championship Bronze</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal10">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item badminton">
+                    <div class="card h-100">
+                        <img src="../images/athlete11.jpg" class="card-img-top" alt="Saina Nehwal">
+                        <div class="card-body">
+                            <h5 class="card-title">Saina Nehwal</h5>
+                            <p class="card-text text-muted">Badminton</p>
+                            <p><i class="fas fa-trophy"></i> Olympic Bronze Medalist</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal11">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Sports Athletes -->
+                <div class="col-md-3 col-sm-6 mb-4 athlete-item other">
+                    <div class="card h-100">
+                        <img src="../images/athlete12.jpg" class="card-img-top" alt="Mary Kom">
+                        <div class="card-body">
+                            <h5 class="card-title">Mary Kom</h5>
+                            <p class="card-text text-muted">Boxing</p>
+                            <p><i class="fas fa-trophy"></i> 6-time World Champion</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-sm btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#athleteModal12">View Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="no-athletes-message" class="alert alert-info text-center d-none">
+                <i class="fas fa-info-circle me-2"></i> No athletes match your search criteria. Please try different filters.
+            </div>
+        </section>
+    </main>
+    
+    <!-- Athlete Profile Modal -->
+    <div class="modal fade" id="athleteModal1" tabindex="-1" aria-labelledby="athleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="athleteModalLabel">Virat Kohli</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="images/athlete1.jpg" class="img-fluid rounded mb-3" alt="Virat Kohli">
+                            <div class="athlete-stats">
+                                <h6>Sport: Cricket</h6>
+                                <h6>Role: Batsman</h6>
+                                <h6>Born: November 5, 1988</h6>
+                                <h6>State: Delhi</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h5>Biography</h5>
+                            <p>Virat Kohli is an Indian international cricketer and former captain of the Indian national team. He is widely regarded as one of the greatest batsmen of all time in the history of cricket. Between 2013 and 2022, he captained the India cricket team in more than 200 matches across all three formats.</p>
+                            
+                            <h5>Career Highlights</h5>
+                            <ul>
+                                <li>71 International centuries</li>
+                                <li>ICC Cricketer of the Year multiple times</li>
+                                <li>Fastest to reach 10,000 ODI runs</li>
+                                <li>Led India to historic Test series win in Australia</li>
+                            </ul>
+                            
+                            <h5>Recent Performances</h5>
+                            <p>Virat Kohli continues to be a key player for the Indian cricket team across all formats. His consistency and ability to perform under pressure make him one of India's most valuable players.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>KhelConnect</h3>
+                <p>Sports Department, Government of India</p>
+                <p>New Delhi, India</p>
+                <p>contact@khelconnect.gov.in</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="athletes.html">Athletes</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 KhelConnect, Sports Department, Government of India. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-info, .footer-links {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+    </style>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

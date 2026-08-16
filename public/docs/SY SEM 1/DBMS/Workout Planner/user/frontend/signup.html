@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - My Workout Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card signup-card">
+            <div class="auth-header">
+                <div class="auth-logo">
+                    <i class="fas fa-dumbbell"></i>
+                    <h1>Create Account</h1>
+                </div>
+                <p>Join My Workout Planner and start your fitness journey</p>
+            </div>
+
+            <form class="auth-form" id="signup-form">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Personal Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="signup-name">Full Name *</label>
+                        <div class="input-group">
+                            <input type="text" id="signup-name" name="name" required placeholder="Enter your full name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email Address *</label>
+                        <div class="input-group">
+                            <input type="email" id="signup-email" name="email" required placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-age">Age *</label>
+                        <div class="input-group">
+                            <input type="number" id="signup-age" name="age" min="13" max="120" required placeholder="Your age">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-gender">Gender *</label>
+                        <div class="input-group">
+                            <select id="signup-gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Physical Information -->
+                <div class="form-section">
+                    <h3><i class="fas fa-heartbeat"></i> Physical Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-height">Height (cm) *</label>
+                            <div class="input-group">
+                                <input type="number" id="signup-height" name="height" min="100" max="250" step="0.1" required placeholder="Height">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signup-weight">Weight (kg) *</label>
+                            <div class="input-group">
+                                <input type="number" id="signup-weight" name="weight" min="30" max="300" step="0.1" required placeholder="Weight">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bmi-preview" id="bmi-preview" style="display: none;">
+                        <div class="bmi-info">
+                            <span class="bmi-label">Your BMI:</span>
+                            <span class="bmi-value" id="bmi-value">0</span>
+                            <span class="bmi-category" id="bmi-category"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Security -->
+                <div class="form-section">
+                    <h3><i class="fas fa-lock"></i> Account Security</h3>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password *</label>
+                        <div class="input-group">
+                            <input type="password" id="signup-password" name="password" required placeholder="Create a password">
+                            <button type="button" class="password-toggle" onclick="toggleSignupPassword()">
+                                <i class="fas fa-eye" id="signup-password-icon"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strength-fill"></div>
+                            </div>
+                            <span class="strength-text" id="strength-text">Password strength</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm Password *</label>
+                        <div class="input-group">
+                            <input type="password" id="signup-confirm" name="confirm" required placeholder="Confirm your password">
+                            <button type="button" class="password-toggle" onclick="toggleConfirmPassword()">
+                                <i class="fas fa-eye" id="confirm-password-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button type="submit" class="auth-btn" id="signup-btn">
+                    <span class="btn-text">Create Account</span>
+                    <span class="btn-loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Creating account...
+                    </span>
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in here</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="../../supabase/config.js"></script>
+    <script src="../../supabase/client.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+Q1
+Use three LED's prepare a circuit to glow the light at three different resistance value it is expected to have a buzzer at the highest resistance value and corresponding display on LCD monitor
+
+Q2
+Use LDR sensor and three different LED's design the circuit to glow the LED at three different value with display on the LCD monitor
+
+Q3
+Use ultrasonic sensor and three LEDs design the circuit to glow the LEDs at three different distances with its display on LCD screen
+
+Q4
+Design the circuit for servo motor It is expected to glow the two LEDs to represent one of status of motor display the rpm on LCD
+
+Q5
+Design the circuit for infrared sensor use two or three LEDs to glow at different values display the value on LCD
+
+Q6
+Design the circuit for temperature sensor use two or three LEDs to glow at different values display the value on LCD
+
+Q7
+Design the circuit for DC motor it is expected to glow the two LEDs to represent one of status of motor display the rpm on LCD
+
+Q8
+Design the circuit using LED and LCD display to scroll your name on LCD screen
+
+Q9
+Use four LEDs to prepare a circuit to glow the light at four different resistance value it is expected to have a buzzer at highest resistance value
+
+Q10
+Use four LEDs prepare a circuit to glow the light at four different resistance values it is expected to have a buzzer at highest resistance value display it on serial monitor

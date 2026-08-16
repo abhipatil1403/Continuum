@@ -1,0 +1,8 @@
+# 52. Check if sets have any common elements
+
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+if set1 & set2:  # Intersection is not empty
+    print("Sets have common elements.")
+else:
+    print("Sets have no common elements.")

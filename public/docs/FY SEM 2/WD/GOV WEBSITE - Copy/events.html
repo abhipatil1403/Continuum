@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KhelConnect - Sports Events - Sports Department of the Government of India">
+    <meta name="keywords" content="sports events, india, tournaments, championships, government">
+    <meta name="author" content="Sports Department, Government of India">
+    <title>Events - KhelConnect - Sports Department of India</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section - Empty for clean hero display -->
+    <header class="text-white">
+        <div class="container py-3">
+            <!-- Empty header to maintain spacing for navbar -->
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand me-3" href="index.html">
+                <img src="images/khel2.png" alt="KhelConnect Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="athletes.html"><i class="fas fa-running"></i> Athletes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html"><i class="fas fa-newspaper"></i> News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="search.html" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" id="search-input" required>
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                <div class="d-flex ms-2">
+                    <a href="login.html" class="btn btn-outline-light"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="display-4 mb-3">Sports Events</h2>
+                    <p class="lead">Discover upcoming tournaments, championships, and sporting events across India.</p>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center justify-content-lg-end mt-3 mt-lg-0">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary active" id="all-events-btn">All Events</button>
+                        <button type="button" class="btn btn-outline-primary" id="upcoming-events-btn">Upcoming</button>
+                        <button type="button" class="btn btn-outline-primary" id="ongoing-events-btn">Ongoing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- Event Filters -->
+        <section class="mb-5">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Filter Events</h5>
+                </div>
+                <div class="card-body">
+                    <form id="event-filter-form">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="sport-filter" class="form-label">Sport</label>
+                                <select class="form-select" id="sport-filter">
+                                    <option value="">All Sports</option>
+                                    <option value="Cricket">Cricket</option>
+                                    <option value="Athletics">Athletics</option>
+                                    <option value="Badminton">Badminton</option>
+                                    <option value="Swimming">Swimming</option>
+                                    <option value="Hockey">Hockey</option>
+                                    <option value="Football">Football</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="location-filter" class="form-label">Location</label>
+                                <select class="form-select" id="location-filter">
+                                    <option value="">All Locations</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="New Delhi">New Delhi</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Bengaluru">Bengaluru</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Kolkata">Kolkata</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="date-filter" class="form-label">Date Range</label>
+                                <select class="form-select" id="date-filter">
+                                    <option value="">Any Time</option>
+                                    <option value="this-month">This Month</option>
+                                    <option value="next-month">Next Month</option>
+                                    <option value="next-3-months">Next 3 Months</option>
+                                    <option value="next-6-months">Next 6 Months</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-end">
+                                <button type="reset" class="btn btn-outline-secondary me-2">Reset</button>
+                                <button type="submit" class="btn btn-primary">Apply Filters</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events List -->
+        <section>
+            <h3 class="section-title">All Events</h3>
+            <div class="row" id="events-container">
+                <!-- Events will be dynamically loaded here using JavaScript -->
+                <div class="col-12 text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p>Loading events...</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Events pagination" class="mt-5">
+                <ul class="pagination justify-content-center" id="events-pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Event Calendar -->
+        <section class="mt-5">
+            <h3 class="section-title">Event Calendar</h3>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="list-group" id="calendar-months">
+                                <a href="#" class="list-group-item list-group-item-action active" data-month="5" data-year="2025">
+                                    May 2025
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action" data-month="6" data-year="2025">
+                                    June 2025
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action" data-month="7" data-year="2025">
+                                    July 2025
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action" data-month="8" data-year="2025">
+                                    August 2025
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action" data-month="9" data-year="2025">
+                                    September 2025
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action" data-month="10" data-year="2025">
+                                    October 2025
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div id="calendar-container">
+                                <table class="table table-bordered calendar-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sun</th>
+                                            <th>Mon</th>
+                                            <th>Tue</th>
+                                            <th>Wed</th>
+                                            <th>Thu</th>
+                                            <th>Fri</th>
+                                            <th>Sat</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="calendar-body">
+                                        <!-- Calendar will be dynamically generated -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submit Event -->
+        <section class="mt-5">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Submit Your Event</h5>
+                </div>
+                <div class="card-body">
+                    <p>Are you organizing a sports event? Submit your event details to be featured on KhelConnect.</p>
+                    <div class="alert alert-info login-required-message">
+                        <i class="fas fa-info-circle"></i> You must be <a href="login.html">logged in</a> to submit an event.
+                    </div>
+                    <form id="submit-event-form" class="needs-authentication">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="event-title" class="form-label">Event Title</label>
+                                <input type="text" class="form-control" id="event-title" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="event-sport" class="form-label">Sport</label>
+                                <select class="form-select" id="event-sport" required>
+                                    <option value="">Select Sport</option>
+                                    <option value="Cricket">Cricket</option>
+                                    <option value="Athletics">Athletics</option>
+                                    <option value="Badminton">Badminton</option>
+                                    <option value="Swimming">Swimming</option>
+                                    <option value="Hockey">Hockey</option>
+                                    <option value="Football">Football</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="event-start-date" class="form-label">Start Date</label>
+                                <input type="date" class="form-control" id="event-start-date" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="event-end-date" class="form-label">End Date</label>
+                                <input type="date" class="form-control" id="event-end-date" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="event-location" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="event-location" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="event-venue" class="form-label">Venue</label>
+                                <input type="text" class="form-control" id="event-venue" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="event-description" class="form-label">Event Description</label>
+                            <textarea class="form-control" id="event-description" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="event-image" class="form-label">Event Image</label>
+                            <input type="file" class="form-control" id="event-image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="organizer-name" class="form-label">Organizer Name</label>
+                            <input type="text" class="form-control" id="organizer-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="organizer-email" class="form-label">Organizer Email</label>
+                            <input type="email" class="form-control" id="organizer-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="organizer-phone" class="form-label">Organizer Phone</label>
+                            <input type="tel" class="form-control" id="organizer-phone" required>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="terms-checkbox" required>
+                            <label class="form-check-label" for="terms-checkbox">
+                                I agree to the terms and conditions
+                            </label>
+                        </div>
+                        <div class="text-end">
+                            <button type="reset" class="btn btn-outline-secondary me-2">Reset</button>
+                            <button type="submit" class="btn btn-primary">Submit Event</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>KhelConnect</h5>
+                    <p>Sports Department, Government of India</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    <p><i class="fas fa-phone"></i> +91 11 2309 XXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@khelconnect.gov.in</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="events.html" class="text-white">Events</a></li>
+                        <li><a href="athletes.html" class="text-white">Athletes</a></li>
+                        <li><a href="news.html" class="text-white">News</a></li>
+                        <li><a href="gallery.html" class="text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="text-white">Privacy Policy</a> |
+                        <a href="#" class="text-white">Terms of Use</a> |
+                        <a href="#" class="text-white">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <p>&copy; 2025 KhelConnect, Sports Department, Government of India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- Auth JS -->
+    <script src="js/auth.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/data.js"></script>
+    <script>
+        // Make sure appData is available globally
+        window.appData = appData;
+    </script>
+    <script src="js/classes.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Ensure KhelConnect is initialized before loading other scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // If KhelConnect is not initialized by main.js, create a fallback
+            if (!window.KhelConnect) {
+                console.log('Creating fallback KhelConnect object');
+                window.KhelConnect = {
+                    getEvents: function() {
+                        return appData.events.map(eventData => new Event(eventData));
+                    },
+                    getAthletes: function() {
+                        return appData.athletes.map(athleteData => new Athlete(athleteData));
+                    },
+                    getNews: function() {
+                        return appData.news.map(newsData => new News(newsData));
+                    }
+                };
+            }
+        });
+    </script>
+    <script src="js/events.js"></script>
+    <script src="js/registration.js"></script>
+</body>
+</html>

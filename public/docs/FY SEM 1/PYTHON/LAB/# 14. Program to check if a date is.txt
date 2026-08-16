@@ -1,0 +1,22 @@
+# 14. Program to check if a date is valid
+
+day = int(input("Enter the dd: "))
+month = int(input("Enter the mm: "))
+year = int(input("Enter the yyyy: "))
+
+# Basic month days list (non-leap year)
+days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+# Check if the month is valid
+if month < 1 or month > 12:
+    print(day, "/", month, "/", year, "is not a valid date.")
+else:
+    # Adjust February for leap year
+    if (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)):
+        days_in_month[1] = 29
+
+    # Check if the day is valid
+    if day <= days_in_month[month - 1]:
+        print(day, "/", month, "/", year, "is a valid date.")
+    else:
+        print(day, "/", month, "/", year, "is not a valid date.")

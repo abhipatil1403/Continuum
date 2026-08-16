@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - DSC VIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .resource-card {
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-filter.active {
+            background-color: #4285F4;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="images/DSC.png" alt="DSC Logo" class="h-12 w-12">
+                <span class="ml-3 text-xl font-bold gradient-text">DSC VIT</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="index.html#events" class="text-gray-700 hover:text-blue-600 font-medium">Events</a>
+                <a href="index.html#team" class="text-gray-700 hover:text-blue-600 font-medium">Team</a>
+                <a href="projects.html" class="text-gray-700 hover:text-blue-600 font-medium">Projects</a>
+                <a href="gallery.html" class="text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                <a href="resources.html" class="text-blue-600 font-medium">Resources</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+            
+            <!-- Login/Profile Section -->
+            <div class="hidden md:block">
+                <!-- Not logged in state (default) -->
+                <div id="loginSection" class="flex space-x-3">
+                    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">Login</a>
+                    <a href="signup.html" class="border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300 font-medium">Sign Up</a>
+                </div>
+                
+                <!-- Logged in state (hidden by default) -->
+                <div id="profileSection" class="hidden relative">
+                    <button id="profileDropdownButton" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium">
+                        <span id="userName">User Name</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="profileDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden z-50">
+                        <a href="#" id="logoutButton" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <div class="md:hidden hidden bg-white w-full py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="index.html#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+            <a href="index.html#events" class="block py-2 text-gray-700 hover:text-blue-600">Events</a>
+            <a href="index.html#team" class="block py-2 text-gray-700 hover:text-blue-600">Team</a>
+            <a href="projects.html" class="block py-2 text-gray-700 hover:text-blue-600">Projects</a>
+            <a href="gallery.html" class="block py-2 text-gray-700 hover:text-blue-600">Gallery</a>
+            <a href="resources.html" class="block py-2 text-blue-600">Resources</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+            
+            <!-- Mobile Login/Profile Section -->
+            <div id="mobileLoginSection" class="py-2">
+                <a href="login.html" class="block py-2 text-blue-600 font-medium">Login</a>
+                <a href="signup.html" class="block py-2 text-blue-600 font-medium">Sign Up</a>
+            </div>
+            
+            <!-- Mobile Logged in state (hidden by default) -->
+            <div id="mobileProfileSection" class="hidden py-2">
+                <div class="block py-2 text-gray-700">
+                    <span id="mobileUserName">User Name</span>
+                </div>
+                <a href="#" id="mobileLogoutButton" class="block py-2 text-red-600 hover:text-red-700">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Learning Resources</h1>
+            <p class="text-xl max-w-3xl mx-auto">Discover curated learning materials, tutorials, and tools to enhance your technical skills and knowledge.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="mb-12 text-center">
+                <h2 class="text-3xl font-bold gradient-text mb-6">Explore Resources</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Filter through our collection of resources to find exactly what you need for your learning journey.</p>
+            </div>
+
+            <!-- Search and Filter (jQuery-powered) -->
+            <div class="mb-12 max-w-4xl mx-auto">
+                <div class="bg-gray-100 p-6 rounded-xl shadow-sm">
+                    <div class="mb-4">
+                        <label for="resource-search" class="block text-gray-700 font-medium mb-2">Search Resources</label>
+                        <div class="relative">
+                            <input type="text" id="resource-search" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search by keyword...">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="block text-gray-700 font-medium mb-2">Filter by Category</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="category-filter active px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-blue-100" data-category="all">All</button>
+                            <button class="category-filter px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-blue-100" data-category="web">Web Development</button>
+                            <button class="category-filter px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-blue-100" data-category="mobile">Mobile Development</button>
+                            <button class="category-filter px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-blue-100" data-category="cloud">Cloud Computing</button>
+                            <button class="category-filter px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-blue-100" data-category="ml">Machine Learning</button>
+                            <button class="category-filter px-4 py-2 rounded-lg bg-gray-200 text-gray-700 hover:bg-blue-100" data-category="design">UI/UX Design</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Grid -->
+            <div id="resources-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Resources will be dynamically loaded here -->
+            </div>
+
+            <!-- No Results Message (Hidden by default) -->
+            <div id="no-results" class="hidden text-center py-12">
+                <i class="fas fa-search text-gray-400 text-5xl mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-700 mb-2">No resources found</h3>
+                <p class="text-gray-600">Try adjusting your search or filter criteria</p>
+            </div>
+
+            <!-- Loading Indicator (jQuery animation) -->
+            <div id="loading-indicator" class="text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+                <p class="mt-4 text-gray-600">Loading resources...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribute Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold gradient-text mb-6">Contribute Resources</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto mb-8">Have a great resource to share with the community? Submit it below and help fellow developers grow!</p>
+            
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md">
+                <!-- Login required message (shown when not logged in) -->
+                <div id="contributeLoginRequired" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        <p>Please <a href="login.html" class="font-bold underline">login</a> or <a href="signup.html" class="font-bold underline">sign up</a> to contribute resources.</p>
+                    </div>
+                </div>
+                
+                <!-- Contribute form (shown when logged in) -->
+                <form id="resource-form" class="space-y-6 hidden">
+                    <div>
+                        <label for="resource-title" class="block text-gray-700 font-medium mb-2">Resource Title</label>
+                        <input type="text" id="resource-title" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter resource title" required>
+                    </div>
+                    
+                    <div>
+                        <label for="resource-url" class="block text-gray-700 font-medium mb-2">Resource URL</label>
+                        <input type="url" id="resource-url" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://example.com" required>
+                    </div>
+                    
+                    <div>
+                        <label for="resource-category" class="block text-gray-700 font-medium mb-2">Category</label>
+                        <select id="resource-category" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select a category</option>
+                            <option value="web">Web Development</option>
+                            <option value="mobile">Mobile Development</option>
+                            <option value="cloud">Cloud Computing</option>
+                            <option value="ml">Machine Learning</option>
+                            <option value="design">UI/UX Design</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="resource-description" class="block text-gray-700 font-medium mb-2">Description</label>
+                        <textarea id="resource-description" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Brief description of the resource" required></textarea>
+                    </div>
+                    
+                    <div id="form-message" class="hidden p-4 rounded-lg"></div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">
+                        Submit Resource
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/dsc.png" alt="DSC Logo" class="h-10 w-10">
+                        <span class="ml-2 text-xl font-bold gradient-text">DSC VIT</span>
+                    </div>
+                    <p class="text-gray-400">Developer Student Clubs VIT is a Google Developers program for university students to learn mobile and web development skills.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="index.html#events" class="text-gray-400 hover:text-white transition duration-300">Events</a></li>
+                        <li><a href="index.html#team" class="text-gray-400 hover:text-white transition duration-300">Team</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition duration-300">Projects</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300">Gallery</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300">Resources</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Technologies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Android</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cloud Computing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Machine Learning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-400 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">dscvitpune@vit.edu</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 DSC VIT. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- jQuery Script -->
+    <script>
+        $(document).ready(function() {
+            // Direct DOM manipulation for the contribute form
+            function checkLoginState() {
+                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+                const resourceForm = document.getElementById('resource-form');
+                const contributeLoginRequired = document.getElementById('contributeLoginRequired');
+                
+                console.log('Login state checked. isLoggedIn:', isLoggedIn);
+                
+                if (isLoggedIn) {
+                    // User is logged in - show form, hide message
+                    if (resourceForm) resourceForm.style.display = 'block';
+                    if (contributeLoginRequired) contributeLoginRequired.style.display = 'none';
+                    console.log('User is logged in, showing form');
+                } else {
+                    // User is not logged in - hide form, show message
+                    if (resourceForm) resourceForm.style.display = 'none';
+                    if (contributeLoginRequired) contributeLoginRequired.style.display = 'block';
+                    console.log('User is not logged in, showing message');
+                }
+            }
+            
+            // Run immediately
+            checkLoginState();
+            
+            // Check again every second
+            setInterval(checkLoginState, 1000);
+            
+            // Sample resource data (in a real application, this would come from a database)
+            const resources = [
+                {
+                    id: 1,
+                    title: "Complete Web Development Bootcamp",
+                    url: "https://example.com/web-bootcamp",
+                    category: "web",
+                    description: "Learn HTML, CSS, JavaScript, Node.js, React, and more in this comprehensive web development course.",
+                    image: "images/resource1.jpg",
+                    tags: ["HTML", "CSS", "JavaScript", "React"]
+                },
+                {
+                    id: 2,
+                    title: "Flutter & Dart - The Complete Guide",
+                    url: "https://example.com/flutter-guide",
+                    category: "mobile",
+                    description: "Build native mobile apps for Android and iOS using Flutter framework.",
+                    image: "images/resource2.jpg",
+                    tags: ["Flutter", "Dart", "Mobile"]
+                },
+                {
+                    id: 3,
+                    title: "Google Cloud Platform Fundamentals",
+                    url: "https://example.com/gcp-fundamentals",
+                    category: "cloud",
+                    description: "Learn the basics of Google Cloud Platform and how to deploy applications.",
+                    image: "images/resource3.jpg",
+                    tags: ["GCP", "Cloud", "DevOps"]
+                },
+                {
+                    id: 4,
+                    title: "Machine Learning A-Z",
+                    url: "https://example.com/ml-az",
+                    category: "ml",
+                    description: "Master machine learning algorithms and implement them in Python.",
+                    image: "images/resource4.jpg",
+                    tags: ["Python", "ML", "Data Science"]
+                },
+                {
+                    id: 5,
+                    title: "UI/UX Design Masterclass",
+                    url: "https://example.com/uiux-masterclass",
+                    category: "design",
+                    description: "Learn the principles of UI/UX design and create beautiful user interfaces.",
+                    image: "images/resource5.jpg",
+                    tags: ["Figma", "Design", "UX"]
+                },
+                {
+                    id: 6,
+                    title: "React Native - The Practical Guide",
+                    url: "https://example.com/react-native-guide",
+                    category: "mobile",
+                    description: "Build native mobile apps using React Native and JavaScript.",
+                    image: "images/resource6.jpg",
+                    tags: ["React Native", "JavaScript", "Mobile"]
+                },
+                {
+                    id: 7,
+                    title: "Advanced CSS and Sass",
+                    url: "https://example.com/advanced-css",
+                    category: "web",
+                    description: "Take your CSS skills to the next level with advanced techniques and Sass.",
+                    image: "images/resource7.jpg",
+                    tags: ["CSS", "Sass", "Web Design"]
+                },
+                {
+                    id: 8,
+                    title: "TensorFlow Developer Certificate",
+                    url: "https://example.com/tensorflow-cert",
+                    category: "ml",
+                    description: "Prepare for the TensorFlow Developer Certificate exam with hands-on projects.",
+                    image: "images/resource8.jpg",
+                    tags: ["TensorFlow", "Deep Learning", "AI"]
+                },
+                {
+                    id: 9,
+                    title: "AWS Certified Solutions Architect",
+                    url: "https://example.com/aws-architect",
+                    category: "cloud",
+                    description: "Prepare for the AWS Solutions Architect certification with practical lessons.",
+                    image: "images/resource9.jpg",
+                    tags: ["AWS", "Cloud", "Architecture"]
+                }
+            ];
+
+            // Hide loading indicator after resources are "loaded"
+            setTimeout(function() {
+                $("#loading-indicator").fadeOut(300, function() {
+                    displayResources(resources);
+                });
+            }, 1000);
+
+            // Function to display resources
+            function displayResources(resourcesArray) {
+                const container = $("#resources-container");
+                container.empty();
+                
+                if (resourcesArray.length === 0) {
+                    $("#no-results").fadeIn(300);
+                    return;
+                }
+                
+                $("#no-results").hide();
+                
+                $.each(resourcesArray, function(index, resource) {
+                    const card = $(`
+                        <div class="resource-card bg-white rounded-xl shadow-md overflow-hidden" data-category="${resource.category}">
+                            <div class="h-48 bg-gray-200 relative overflow-hidden">
+                                <img src="${resource.image}" alt="${resource.title}" class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                    <span class="text-white font-medium">${getCategoryName(resource.category)}</span>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2">${resource.title}</h3>
+                                <p class="text-gray-600 mb-4">${resource.description}</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    ${resource.tags.map(tag => `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">${tag}</span>`).join('')}
+                                </div>
+                                <a href="${resource.url}" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                                    View Resource
+                                </a>
+                            </div>
+                        </div>
+                    `);
+                    
+                    // Add animation effect with jQuery
+                    card.css('opacity', 0);
+                    container.append(card);
+                    card.animate({opacity: 1}, 300 + (index * 100));
+                });
+            }
+            
+            // Helper function to get category display name
+            function getCategoryName(category) {
+                const categories = {
+                    'web': 'Web Development',
+                    'mobile': 'Mobile Development',
+                    'cloud': 'Cloud Computing',
+                    'ml': 'Machine Learning',
+                    'design': 'UI/UX Design'
+                };
+                return categories[category] || 'Other';
+            }
+            
+            // Filter resources by category
+            $(".category-filter").click(function() {
+                const category = $(this).data('category');
+                
+                // Update active button styling
+                $(".category-filter").removeClass('active');
+                $(this).addClass('active');
+                
+                // Filter resources
+                let filteredResources;
+                if (category === 'all') {
+                    filteredResources = resources;
+                } else {
+                    filteredResources = resources.filter(resource => resource.category === category);
+                }
+                
+                // Animate the transition
+                $("#resources-container").fadeOut(300, function() {
+                    displayResources(filteredResources);
+                    $(this).fadeIn(300);
+                });
+            });
+            
+            // Search functionality
+            $("#resource-search").on('keyup', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                const activeCategory = $(".category-filter.active").data('category');
+                
+                // Filter by both search term and active category
+                let filteredResources = resources;
+                
+                if (activeCategory !== 'all') {
+                    filteredResources = filteredResources.filter(resource => resource.category === activeCategory);
+                }
+                
+                if (searchTerm) {
+                    filteredResources = filteredResources.filter(resource => 
+                        resource.title.toLowerCase().includes(searchTerm) || 
+                        resource.description.toLowerCase().includes(searchTerm) ||
+                        resource.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    );
+                }
+                
+                // Animate the transition
+                $("#resources-container").fadeOut(200, function() {
+                    displayResources(filteredResources);
+                    $(this).fadeIn(200);
+                });
+            });
+            
+            // Form submission with jQuery validation and animation
+            $("#resource-form").submit(function(e) {
+                e.preventDefault();
+                
+                const formMessage = $("#form-message");
+                
+                // Simple form validation
+                const title = $("#resource-title").val();
+                const url = $("#resource-url").val();
+                const category = $("#resource-category").val();
+                const description = $("#resource-description").val();
+                
+                if (!title || !url || !category || !description) {
+                    formMessage
+                        .removeClass('bg-green-100 text-green-700')
+                        .addClass('bg-red-100 text-red-700')
+                        .html('<i class="fas fa-exclamation-circle mr-2"></i> Please fill in all fields')
+                        .slideDown(300);
+                    return;
+                }
+                
+                // In a real application, you would submit this data to a server
+                // For this demo, we'll just show a success message
+                
+                // Clear form
+                this.reset();
+                
+                // Show success message with animation
+                formMessage
+                    .removeClass('bg-red-100 text-red-700')
+                    .addClass('bg-green-100 text-green-700')
+                    .html('<i class="fas fa-check-circle mr-2"></i> Resource submitted successfully! It will be reviewed by our team.')
+                    .hide()
+                    .slideDown(300);
+                
+                // Auto-hide message after 5 seconds
+                setTimeout(function() {
+                    formMessage.slideUp(300);
+                }, 5000);
+            });
+            
+            // Mobile menu toggle
+            $("#menu-toggle").click(function() {
+                $("#mobile-menu").slideToggle(300);
+            });
+            
+            // Profile dropdown toggle
+            $("#profileDropdownButton").click(function() {
+                $("#profileDropdown").fadeToggle(200);
+            });
+            
+            // Close dropdown when clicking outside
+            $(document).click(function(e) {
+                if (!$(e.target).closest('#profileDropdownButton, #profileDropdown').length) {
+                    $("#profileDropdown").fadeOut(200);
+                }
+            });
+            
+            // Update UI based on login state (reusing existing function from other pages)
+            function updateUIForLoginState() {
+                // Check if user is logged in (from localStorage)
+                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+                const userName = localStorage.getItem('userName') || 'User';
+                
+                if (isLoggedIn) {
+                    // Update desktop UI
+                    $("#loginSection").addClass('hidden');
+                    $("#profileSection").removeClass('hidden');
+                    $("#userName").text(userName);
+                    
+                    // Update mobile UI
+                    $("#mobileLoginSection").addClass('hidden');
+                    $("#mobileProfileSection").removeClass('hidden');
+                    $("#mobileUserName").text(userName);
+                } else {
+                    // Update desktop UI
+                    $("#loginSection").removeClass('hidden');
+                    $("#profileSection").addClass('hidden');
+                    
+                    // Update mobile UI
+                    $("#mobileLoginSection").removeClass('hidden');
+                    $("#mobileProfileSection").addClass('hidden');
+                }
+            }
+            
+            // Call the function to update UI
+            updateUIForLoginState();
+            
+            // Handle logout
+            $("#logoutButton, #mobileLogoutButton").click(function(e) {
+                e.preventDefault();
+                
+                // Clear login state
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userName');
+                
+                // Update UI
+                updateUIForLoginState();
+                
+                // Show message
+                alert('You have been logged out successfully.');
+            });
+            
+            // Back to top button functionality
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 300) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            
+            $('#back-to-top').click(function() {
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+        });
+    </script>

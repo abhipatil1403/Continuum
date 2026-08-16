@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "GradeMyApple",
+    "slug": "fruit-grading-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to camera to scan QR codes for apple grading verification and take photos for farmer registration.",
+        "NSMicrophoneUsageDescription": "This app needs access to microphone for camera functionality.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to photo library to select images for farmer registration and product verification.",
+        "NSLocationWhenInUseUsageDescription": "We use your location to help pick farm and warehouse locations on the map."
+      },
+      "config": {
+        "googleMapsApiKey": "YOUR_IOS_GOOGLE_MAPS_API_KEY"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.abhishekpatil1403.fruitgradingapp",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_IMAGES",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBD-aBmEtBk1MIf98sqJ8AqG5ld7F3rGjc"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fd32b9f1-d226-4bbc-8610-99755880f0f3"
+      },
+      "SUPABASE_URL": "https://jlhtxbjdjuxwafaldcpq.supabase.co",
+      "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpsaHR4YmpkanV4d2FmYWxkY3BxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgwMTA1NDYsImV4cCI6MjA3MzU4NjU0Nn0.qMu2nB3mmuqGwSs7nVuuz2h5ebfTVEN3YOe6zxhnmGU"
+    },
+    "owner": "abhishekpatil1403"
+  }
+}

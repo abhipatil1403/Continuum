@@ -1,0 +1,5 @@
+# 30. Program to Access List Index and Values
+
+my_list = [1, 2, 3, 4, 5]
+for i in range(len(my_list)):
+    print("Index", i, "Value", my_list[i])

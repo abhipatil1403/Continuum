@@ -1,0 +1,7 @@
+# 47. Program to Merge Two Python Dictionaries
+
+dict1 = {'x': 10, 'y': 20}
+dict2 = {'z': 30, 'w': 40}
+merged_dict = dict1.copy()
+merged_dict.update(dict2)
+print("Merged Dictionary:", merged_dict)

@@ -1,0 +1,7 @@
+# 8. CLASS DESK PROBLEM
+
+a = int(input("Enter the students in classroom A: "))
+b = int(input("Enter the students in classroom B: "))
+c = int(input("Enter the students in classroom C: "))  
+total_desks = (a + 1) // 2 + (b + 1) // 2 + (c + 1) // 2  
+print(total_desks)

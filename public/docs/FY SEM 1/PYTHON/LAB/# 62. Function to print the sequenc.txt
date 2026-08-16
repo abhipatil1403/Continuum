@@ -1,0 +1,11 @@
+# 62. Function to print the sequence in reverse order using recursion
+
+def reverse_sequence():
+    num = int(input("Enter a number: "))
+    if num == 0:
+        return
+    else:
+        reverse_sequence()  # Recursive call
+        print(num,end=" ")
+
+reverse_sequence()

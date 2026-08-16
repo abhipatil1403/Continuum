@@ -1,0 +1,10 @@
+# 39. Program to Create and View a Dictionary
+
+student = {
+    "Name": "Abhishek",
+    "Age": 8,
+    "Course": "CSE-AIML",
+    "College": "VIT"
+}
+print("Student Dictionary:", student)
+

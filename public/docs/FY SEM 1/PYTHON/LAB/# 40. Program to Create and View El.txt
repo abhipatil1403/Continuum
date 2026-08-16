@@ -1,0 +1,4 @@
+# 40. Program to Create and View Elements of a Set
+
+my_set = {1, 2, 3, 4}
+print("Set:", my_set)

@@ -1,0 +1,8 @@
+# 42. Program to Print all Keys of Dictionary
+
+dictionary= {
+    "car":"honda",
+    "color":"red",
+    "engine": "v12"
+}
+print(dictionary.keys())

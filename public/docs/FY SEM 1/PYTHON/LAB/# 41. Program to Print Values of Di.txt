@@ -1,0 +1,8 @@
+# 41. Program to Print Values of Dictionary
+
+dictionary= {
+    "car":"honda",
+    "color":"red",
+    "engine": "v12"
+}
+print(dictionary.values())

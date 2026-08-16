@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC VIT - Developer Student Clubs</title>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="images/DSC.png" alt="DSC Logo" class="h-12 w-12">
+                <span class="ml-3 text-xl font-bold gradient-text">DSC VIT</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="#events" class="text-gray-700 hover:text-blue-600 font-medium">Events</a>
+                <a href="#team" class="text-gray-700 hover:text-blue-600 font-medium">Team</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+            
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <div class="md:hidden hidden bg-white w-full py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+            <a href="#events" class="block py-2 text-gray-700 hover:text-blue-600">Events</a>
+            <a href="#team" class="block py-2 text-gray-700 hover:text-blue-600">Team</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Developer Student Clubs</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Vishwakarma Institute of Technology</h2>
+                <p class="text-lg mb-8">A Google Developers program for university students to learn, connect and create technology solutions.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#about" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Learn More</a>
+                    <a href="#events" class="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-blue-600 transition duration-300">Our Events</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="images/hero-image.png" alt="DSC Community">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">About DSC VIT</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Developer Student Clubs (DSC) is a Google Developers program for university students to learn mobile and web development skills, design thinking, and leadership skills.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-code text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Technical Skills</h3>
+                    <p class="text-gray-600">Learn the latest technologies like Android, Cloud, Machine Learning, and more through hands-on workshops and projects.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="text-green-600 mb-4">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Community</h3>
+                    <p class="text-gray-600">Connect with like-minded students, build your network, and collaborate on projects that solve local problems.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-lightbulb text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Innovation</h3>
+                    <p class="text-gray-600">Develop solutions for local businesses and communities while applying design thinking and problem-solving skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Our Events</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">We organize various technical and non-technical events throughout the year to help students grow their skills.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-0 md:left-1/2 h-full w-1 bg-blue-100"></div>
+                
+                <div class="space-y-8">
+                    <div class="relative pl-10 md:pl-0 md:flex justify-between items-center">
+                        <div class="md:w-5/12 mb-6 md:mb-0 md:pr-10">
+                            <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                                <span class="text-sm text-blue-600 font-medium">October 2024</span>
+                                <h3 class="text-xl font-bold my-2">30 Days of Google Cloud</h3>
+                                <p class="text-gray-600">A month-long program where participants learn and complete hands-on labs on Google Cloud Platform.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Cloud</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Workshop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-2/12 text-center">
+                            <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                                <i class="fas fa-cloud text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <div class="relative pl-10 md:pl-0 md:flex justify-between items-center">
+                        <div class="md:w-5/12"></div>
+                        <div class="hidden md:block md:w-2/12 text-center">
+                            <div class="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                                <i class="fas fa-code text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 mb-6 md:mb-0 md:pl-10">
+                            <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                                <span class="text-sm text-green-600 font-medium">November 2024</span>
+                                <h3 class="text-xl font-bold my-2">Hacktoberfest</h3>
+                                <p class="text-gray-600">Celebrate open source by contributing to repositories and earning limited edition swag from DigitalOcean.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Open Source</span>
+                                    <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Hackathon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-10 md:pl-0 md:flex justify-between items-center">
+                        <div class="md:w-5/12 mb-6 md:mb-0 md:pr-10">
+                            <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                                <span class="text-sm text-yellow-600 font-medium">January 2025</span>
+                                <h3 class="text-xl font-bold my-2">Android Study Jams</h3>
+                                <p class="text-gray-600">Learn Android development fundamentals and build your first Android apps with Kotlin.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Android</span>
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Workshop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-2/12 text-center">
+                            <div class="bg-yellow-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                                <i class="fab fa-android text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300">
+                    View All Events <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Our Team</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Meet the passionate students who make DSC VIT possible and help the community grow.</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">            
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <img src="images/team-lead.png" alt="Team Lead" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Rahul Sharma</h3>
+                        <p class="text-blue-600 mb-3">Lead</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <img src="images/android-lead.png" alt="Android Lead" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Priya Patel</h3>
+                        <p class="text-green-600 mb-3">Android Lead</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <img src="images/web.png" alt="Web Lead" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Amit Kumar</h3>
+                        <p class="text-purple-600 mb-3">Web Lead</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <img src="images/ml.png" alt="ML Lead" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Neha Gupta</h3>
+                        <p class="text-red-600 mb-3">ML Lead</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-blue-600 hover:text-white transition duration-300">
+                    Meet the Full Team <i class="fas fa-users ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Contact Us</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Have questions or want to collaborate? Reach out to us through any of these channels.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-600 text-white p-10">
+                        <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Address</h4>
+                                <p>Vishwakarma Institute of Technology, Pune, 411037</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p>dscvitpune@vit.edu</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p>+91 9876543210</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-10">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Send Us a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p class="max-w-2xl mx-auto mb-8">Stay updated with our latest events, workshops, and announcements by subscribing to our newsletter.</p>
+            
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                <button class="bg-blue-800 px-6 py-3 rounded-r-lg font-medium hover:bg-blue-900 transition duration-300">
+                    Subscribe <i class="fas fa-envelope ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/dsc.png" alt="DSC Logo" class="h-10 w-10">
+                        <span class="ml-2 text-xl font-bold gradient-text">DSC VIT</span>
+                    </div>
+                    <p class="text-gray-400">Developer Student Clubs VIT is a Google Developers program for university students to learn mobile and web development skills.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition duration-300">Events</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition duration-300">Team</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Technologies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Android</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cloud Computing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Machine Learning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-400 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">dscvitpune@vit.edu</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 DSC VIT. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+</body>
+</html>

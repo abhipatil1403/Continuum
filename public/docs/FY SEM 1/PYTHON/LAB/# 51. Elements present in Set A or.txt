@@ -1,0 +1,6 @@
+# 51. Elements present in Set A or B, but not both
+
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+result = set1 ^ set2
+print("Elements present in Set A or B, but not both:", result)

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Workout Planner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="login-form" class="login-form">
+        <h2>Admin Login</h2>
+        <input type="text" id="username" placeholder="Username" value="admin"><br>
+        <input type="password" id="password" placeholder="Password" value="admin"><br>
+        <button onclick="login()">Login</button>
+        <p id="error-msg"></p>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="dashboard" class="dashboard">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </header>
+        
+        <!-- Dashboard Overview Cards -->
+        <div class="stats-grid">
+            <div class="stat-card stat-card-primary">
+                <div class="stat-icon">👥</div>
+                <div class="stat-content">
+                    <h3 id="total-users">0</h3>
+                    <p>Total Users</p>
+                </div>
+            </div>
+            <div class="stat-card stat-card-success">
+                <div class="stat-icon">💪</div>
+                <div class="stat-content">
+                    <h3 id="total-workouts">0</h3>
+                    <p>Total Workouts</p>
+                </div>
+            </div>
+            <div class="stat-card stat-card-warning">
+                <div class="stat-icon">🏋️</div>
+                <div class="stat-content">
+                    <h3 id="total-equipment">0</h3>
+                    <p>Equipment Items</p>
+                </div>
+            </div>
+            <div class="stat-card stat-card-info">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <h3 id="total-exercises">0</h3>
+                    <p>Total Exercises</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'overview')">Overview</button>
+            <button class="tablinks" onclick="openTab(event, 'equipment')">Equipment Analytics</button>
+            <button class="tablinks" onclick="openTab(event, 'users')">User Management</button>
+            <button class="tablinks" onclick="openTab(event, 'training')">Workout History</button>
+            <button class="tablinks" onclick="openTab(event, 'analytics')">Performance Analytics</button>
+        </div>
+
+        <div id="overview" class="tabcontent" style="display: block;">
+            <h2>Dashboard Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>Popular Equipment</h3>
+                    <div id="popular-equipment-chart" class="card">Loading...</div>
+                </div>
+                <div class="overview-card">
+                    <h3>Top Muscle Groups</h3>
+                    <div id="muscle-groups-chart" class="card">Loading...</div>
+                </div>
+                <div class="overview-card full-width">
+                    <h3>Recent Activity</h3>
+                    <div id="recent-activity" class="card">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="equipment" class="tabcontent">
+            <h2>Equipment Analytics</h2>
+            <p class="section-description">Comprehensive equipment usage statistics and performance metrics</p>
+            <div id="equipment-stats" class="card">Loading...</div>
+        </div>
+
+        <div id="users" class="tabcontent">
+            <h2>User Management <span style="font-size: 0.7em; font-weight: normal; color: #666;">(SELECT, ORDER BY)</span></h2>
+            <p class="section-description">Manage and monitor all registered users</p>
+            <div id="users-list" class="card">Loading...</div>
+        </div>
+
+        <div id="training" class="tabcontent">
+            <h2>Workout History <span style="font-size: 0.7em; font-weight: normal; color: #666;">(JOIN Operations)</span></h2>
+            <p class="section-description">Complete training records across all users and exercises</p>
+            <div id="training-records" class="card">Loading...</div>
+        </div>
+
+        <div id="analytics" class="tabcontent">
+            <h2>Performance Analytics <span style="font-size: 0.7em; font-weight: normal; color: #666;">(Aggregate Functions: COUNT, SUM, AVG, MAX, MIN)</span></h2>
+            <p class="section-description">Advanced analytics and aggregate statistics</p>
+            <div id="analytics-content" class="card">Loading...</div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

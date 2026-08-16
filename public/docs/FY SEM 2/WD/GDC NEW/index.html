@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSC VIT - Developer Student Clubs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #4285F4;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: -30px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="images/DSC.png" alt="DSC Logo" class="h-12 w-12">
+                <span class="ml-3 text-xl font-bold gradient-text">DSC VIT</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="#events" class="text-gray-700 hover:text-blue-600 font-medium">Events</a>
+                <a href="#team" class="text-gray-700 hover:text-blue-600 font-medium">Team</a>
+                <a href="projects.html" class="text-gray-700 hover:text-blue-600 font-medium">Projects</a>
+                <a href="gallery.html" class="text-gray-700 hover:text-blue-600 font-medium">Gallery</a>
+                <a href="resources.html" class="text-gray-700 hover:text-blue-600 font-medium">Resources</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+            
+            <!-- Login/Profile Section -->
+            <div class="hidden md:block">
+                <!-- Not logged in state (default) -->
+                <div id="loginSection" class="flex space-x-3">
+                    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">Login</a>
+                    <a href="signup.html" class="border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300 font-medium">Sign Up</a>
+                </div>
+                
+                <!-- Logged in state (hidden by default) -->
+                <div id="profileSection" class="hidden relative">
+                    <button id="profileDropdownButton" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium">
+                        <span id="userName">User Name</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="profileDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden z-50">
+                        <a href="#" id="logoutButton" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <div class="md:hidden hidden bg-white w-full py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+            <a href="#events" class="block py-2 text-gray-700 hover:text-blue-600">Events</a>
+            <a href="#team" class="block py-2 text-gray-700 hover:text-blue-600">Team</a>
+            <a href="projects.html" class="block py-2 text-gray-700 hover:text-blue-600">Projects</a>
+            <a href="gallery.html" class="block py-2 text-gray-700 hover:text-blue-600">Gallery</a>
+            <a href="resources.html" class="block py-2 text-gray-700 hover:text-blue-600">Resources</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+            
+            <!-- Mobile Login/Profile Section -->
+            <div id="mobileLoginSection" class="py-2">
+                <a href="login.html" class="block py-2 text-blue-600 font-medium">Login</a>
+                <a href="signup.html" class="block py-2 text-blue-600 font-medium">Sign Up</a>
+            </div>
+            
+            <!-- Mobile Logged in state (hidden by default) -->
+            <div id="mobileProfileSection" class="hidden py-2">
+                <div class="block py-2 text-gray-700">
+                    <span id="mobileUserName">User Name</span>
+                </div>
+                <a href="#" id="mobileLogoutButton" class="block py-2 text-red-600 hover:text-red-700">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Developer Student Clubs</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Vishwakarma Institute of Technology</h2>
+                <p class="text-lg mb-8">A Google Developers program for university students to learn, connect and create technology solutions.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#about" class="bg-white text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300">Learn More</a>
+                    <a href="#events" class="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-blue-600 transition duration-300">Our Events</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="images/hero-image.png" alt="DSC Community">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">About DSC VIT</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Developer Student Clubs (DSC) is a Google Developers program for university students to learn mobile and web development skills, design thinking, and leadership skills.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-code text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Technical Skills</h3>
+                    <p class="text-gray-600">Learn the latest technologies like Android, Cloud, Machine Learning, and more through hands-on workshops and projects.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="text-green-600 mb-4">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Community</h3>
+                    <p class="text-gray-600">Connect with like-minded students, build your network, and collaborate on projects that solve local problems.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-lightbulb text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Innovation</h3>
+                    <p class="text-gray-600">Develop solutions for local businesses and communities while applying design thinking and problem-solving skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Our Events</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">We organize various technical and non-technical events throughout the year to help students grow their skills.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-0 md:left-1/2 h-full w-1 bg-blue-100"></div>
+                
+                <div class="space-y-8">
+                    <div class="relative pl-10 md:pl-0 md:flex justify-between items-center">
+                        <div class="md:w-5/12 mb-6 md:mb-0 md:pr-10">
+                            <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                                <span class="text-sm text-blue-600 font-medium">October 2024</span>
+                                <h3 class="text-xl font-bold my-2">30 Days of Google Cloud</h3>
+                                <p class="text-gray-600">A month-long program where participants learn and complete hands-on labs on Google Cloud Platform.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Cloud</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Workshop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-2/12 text-center">
+                            <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                                <i class="fas fa-cloud text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                    
+                    <div class="relative pl-10 md:pl-0 md:flex justify-between items-center">
+                        <div class="md:w-5/12"></div>
+                        <div class="hidden md:block md:w-2/12 text-center">
+                            <div class="bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                                <i class="fas fa-code text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12 mb-6 md:mb-0 md:pl-10">
+                            <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                                <span class="text-sm text-green-600 font-medium">November 2024</span>
+                                <h3 class="text-xl font-bold my-2">Hacktoberfest</h3>
+                                <p class="text-gray-600">Celebrate open source by contributing to repositories and earning limited edition swag from DigitalOcean.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Open Source</span>
+                                    <span class="bg-pink-100 text-pink-800 text-xs px-3 py-1 rounded-full">Hackathon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-10 md:pl-0 md:flex justify-between items-center">
+                        <div class="md:w-5/12 mb-6 md:mb-0 md:pr-10">
+                            <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+                                <span class="text-sm text-yellow-600 font-medium">January 2025</span>
+                                <h3 class="text-xl font-bold my-2">Android Study Jams</h3>
+                                <p class="text-gray-600">Learn Android development fundamentals and build your first Android apps with Kotlin.</p>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Android</span>
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Workshop</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-2/12 text-center">
+                            <div class="bg-yellow-500 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto">
+                                <i class="fab fa-android text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-5/12"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="events.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition duration-300">
+                    View All Events <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Our Team</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Meet the passionate students who make DSC VIT possible and help the community grow.</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">      
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="images/team1.jpg" alt="Team Lead" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">KEYUR BARDE</h3>
+                        <p class="text-blue-600 mb-3">MULTIMEDIA HEAD</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="images/team2.jpg" alt="Web3 Lead" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">MANDAR PANDAGALE</h3>
+                        <p class="text-green-600 mb-3">WEB3 HEAD</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="images/team3.jpg" alt="Multimedia Co-Head" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">KARANSINGH PARDESHI</h3>
+                        <p class="text-purple-600 mb-3">MULTIMEDIA CO-HEAD</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition duration-300 card-hover">
+                    <div class="h-64 overflow-hidden">
+                        <img src="images/team4.jpg" alt="App Head" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">KRRISH KUMBHARE</h3>
+                        <p class="text-red-600 mb-3">APP HEAD</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="team.html" class="inline-block border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-full font-medium hover:bg-blue-600 hover:text-white transition duration-300">
+                    Meet the Full Team <i class="fas fa-users ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">Contact Us</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-green-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Have questions or want to collaborate? Reach out to us through any of these channels.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-600 text-white p-10">
+                        <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Address</h4>
+                                <p>Vishwakarma Institute of Technology, Pune, 411037</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6 flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p>dscvitpune@vit.edu</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-white mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p>+91 9876543210</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-white text-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-50 transition duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-10">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">Send Us a Message</h3>
+                        
+                        <!-- Login required message (shown when not logged in) -->
+                        <div id="contactLoginRequired" class="hidden bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded mb-6">
+                            <div class="flex items-center">
+                                <i class="fas fa-exclamation-circle mr-2"></i>
+                                <p>Please <a href="login.html" class="font-bold underline">login</a> or <a href="signup.html" class="font-bold underline">sign up</a> to contact us.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact form (shown when logged in) -->
+                        <form id="contactForm">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p class="max-w-2xl mx-auto mb-8">Stay updated with our latest events, workshops, and announcements by subscribing to our newsletter.</p>
+            
+            <!-- Login required message (shown when not logged in) -->
+            <div id="newsletterLoginRequired" class="hidden max-w-md mx-auto bg-blue-700 text-white px-4 py-3 rounded mb-6">
+                <div class="flex items-center justify-center">
+                    <i class="fas fa-lock mr-2"></i>
+                    <p>Please <a href="login.html" class="font-bold underline">login</a> or <a href="signup.html" class="font-bold underline">sign up</a> to subscribe to our newsletter.</p>
+                </div>
+            </div>
+            
+            <!-- Newsletter form (shown when logged in) -->
+            <div id="newsletterForm" class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                <button class="bg-blue-800 px-6 py-3 rounded-r-lg font-medium hover:bg-blue-900 transition duration-300">
+                    Subscribe <i class="fas fa-envelope ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/dsc.png" alt="DSC Logo" class="h-10 w-10">
+                        <span class="ml-2 text-xl font-bold gradient-text">DSC VIT</span>
+                    </div>
+                    <p class="text-gray-400">Developer Student Clubs VIT is a Google Developers program for university students to learn mobile and web development skills.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition duration-300">Events</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition duration-300">Team</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition duration-300">Projects</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300">Gallery</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300">Resources</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Technologies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Android</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cloud Computing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Machine Learning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-400 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">dscvitpune@vit.edu</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 DSC VIT. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Login/Logout Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in (using localStorage for demo)
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const userName = localStorage.getItem('userName') || 'User Name';
+            
+            // Profile dropdown toggle
+            const profileDropdownButton = document.getElementById('profileDropdownButton');
+            const profileDropdown = document.getElementById('profileDropdown');
+            
+            if (profileDropdownButton) {
+                profileDropdownButton.addEventListener('click', function() {
+                    profileDropdown.classList.toggle('hidden');
+                });
+            }
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (profileDropdownButton && !profileDropdownButton.contains(event.target) && 
+                    !profileDropdown.contains(event.target)) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+            
+            // Update UI based on login state
+            function updateUIForLoginState() {
+                const loginSection = document.getElementById('loginSection');
+                const profileSection = document.getElementById('profileSection');
+                const mobileLoginSection = document.getElementById('mobileLoginSection');
+                const mobileProfileSection = document.getElementById('mobileProfileSection');
+                const userNameElements = document.querySelectorAll('#userName, #mobileUserName');
+                
+                // Contact form elements
+                const contactForm = document.getElementById('contactForm');
+                const contactLoginRequired = document.getElementById('contactLoginRequired');
+                
+                // Newsletter elements
+                const newsletterForm = document.getElementById('newsletterForm');
+                const newsletterLoginRequired = document.getElementById('newsletterLoginRequired');
+                
+                if (isLoggedIn) {
+                    // Desktop
+                    loginSection.classList.add('hidden');
+                    profileSection.classList.remove('hidden');
+                    
+                    // Mobile
+                    mobileLoginSection.classList.add('hidden');
+                    mobileProfileSection.classList.remove('hidden');
+                    
+                    // Update username
+                    userNameElements.forEach(el => {
+                        el.textContent = userName;
+                    });
+                    
+                    // Show contact form, hide login required message
+                    if (contactForm && contactLoginRequired) {
+                        contactForm.classList.remove('hidden');
+                        contactLoginRequired.classList.add('hidden');
+                        
+                        // Pre-fill name and email if available
+                        const nameInput = document.getElementById('name');
+                        const emailInput = document.getElementById('email');
+                        if (nameInput && emailInput) {
+                            nameInput.value = userName;
+                            emailInput.value = localStorage.getItem('userEmail') || '';
+                        }
+                    }
+                    
+                    // Show newsletter form, hide login required message
+                    if (newsletterForm && newsletterLoginRequired) {
+                        newsletterForm.classList.remove('hidden');
+                        newsletterLoginRequired.classList.add('hidden');
+                    }
+                } else {
+                    // Desktop
+                    loginSection.classList.remove('hidden');
+                    profileSection.classList.add('hidden');
+                    
+                    // Mobile
+                    mobileLoginSection.classList.remove('hidden');
+                    mobileProfileSection.classList.add('hidden');
+                    
+                    // Hide contact form, show login required message
+                    if (contactForm && contactLoginRequired) {
+                        contactForm.classList.add('hidden');
+                        contactLoginRequired.classList.remove('hidden');
+                    }
+                    
+                    // Hide newsletter form, show login required message
+                    if (newsletterForm && newsletterLoginRequired) {
+                        newsletterForm.classList.add('hidden');
+                        newsletterLoginRequired.classList.remove('hidden');
+                    }
+                }
+            }
+            
+            // Handle logout
+            const logoutButtons = document.querySelectorAll('#logoutButton, #mobileLogoutButton');
+            logoutButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userName');
+                    localStorage.removeItem('userEmail');
+                    
+                    // Force page reload to ensure all UI elements update correctly
+                    window.location.reload();
+                });
+            });
+            
+            // Initial UI update
+            updateUIForLoginState();
+        });
+    </script>
+</body>
+</html>

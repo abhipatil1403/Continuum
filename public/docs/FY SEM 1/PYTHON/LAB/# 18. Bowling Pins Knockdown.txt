@@ -1,0 +1,11 @@
+# 18. Bowling Pins Knockdown
+
+N = int(input("Enter number of pins: "))
+K = int(input("Enter number of rolls: "))
+pins = ["|"] * N
+for _ in range(K):
+    start = int(input("Enter start pin: ")) - 1
+    stop = int(input("Enter stop pin: "))
+    for i in range(start, stop):
+        pins[i] = "."
+print("".join(pins))

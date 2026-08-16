@@ -1,0 +1,16 @@
+# 17. Find Length of Longest Equal Fragment
+
+length = 1
+max_length = 1
+prev = int(input("Enter a number: "))
+while True:
+    num = int(input("Enter a number: "))
+    if num == 0:
+        break
+    if num == prev:
+        length += 1
+    else:
+        max_length = max(max_length, length)
+        length = 1
+    prev = num
+print("Longest fragment length:", max(max_length, length))

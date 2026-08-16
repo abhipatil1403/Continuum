@@ -1,0 +1,173 @@
+/* Complete Programs Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 10px;
+}
+
+.logo img {
+    height: 80px;
+    max-width: 100%;
+}
+
+.govt-emblem {
+    height: 60px;
+    margin-top: 10px;
+}
+
+nav {
+    background-color: #0f2557;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background-color: #e6f2ff;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero h1, .hero p {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.content-section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content-section h2 {
+    color: #1e3a8a;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #1e3a8a;
+    padding-bottom: 5px;
+}
+
+footer {
+    background-color: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+/* Programs Page Specific Styles */
+
+.program-card-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.program-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.program-details {
+    flex: 1;
+    min-width: 300px;
+}
+.card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 4px solid #1e3a8a;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateX(5px);
+}
+
+.card h3 {
+    color: #1e3a8a;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-top: 10px;
+    color: #555;
+}

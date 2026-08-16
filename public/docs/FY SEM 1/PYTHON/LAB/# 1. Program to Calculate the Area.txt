@@ -1,0 +1,11 @@
+# 1. Program to Calculate the Area of a circle and triangle
+
+pi=3.14
+radius=float(input("PLEAS ENTER RADIUS: "))  #CIRCLE AREA
+area=pi*radius*radius
+print("Area of circle is: ", area)
+
+base=float(input("ENTER BASE: "))      #TRIANGLE AREA
+height= float(input("ENTER HEIGHT: "))
+area=1/2*(base*height)
+print(area)

@@ -1,0 +1,29 @@
+1. Total Medicines Taken (Daily, Weekly, Monthly)
+Chart Type: Line Chart or Bar Chart
+Line Chart → Best for showing trends over time.
+Bar Chart → Useful if comparing different periods (e.g., Jan, Feb, Mar).
+
+2. Most Frequently Taken Medicine
+Chart Type: Pie Chart or Horizontal Bar Chart
+Pie Chart → Shows the proportion of each medicine taken.
+Horizontal Bar Chart → Easier to read if there are many medicines.
+
+3. Upcoming Expiry Alerts
+Chart Type: Timeline Chart or Bar Chart
+Timeline Chart → Shows medicine names on a timeline with their expiry dates.
+Bar Chart → Display medicines along the x-axis and days left before expiry on the y-axis.
+
+4. Stock Usage Trends (How fast a medicine is used)
+Chart Type: Line Chart or Area Chart
+Line Chart → Displays how stock decreases over time.
+Area Chart → Gives a more visual impact by shading the area under the line.
+
+5. Most Prescribed Medicines
+Chart Type: Bar Chart or Pie Chart
+Bar Chart → Better for comparing different medicines.
+Pie Chart → Good for showing distribution.
+
+6. Doctor Visit Frequency
+Chart Type: Column Bar Chart or Line Chart
+Column Bar Chart → Easy to see how often a user visits a doctor.
+Line Chart → Shows the frequency trend over time.

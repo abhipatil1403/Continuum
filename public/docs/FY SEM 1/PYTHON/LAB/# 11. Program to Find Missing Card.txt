@@ -1,0 +1,9 @@
+# 11. Program to Find Missing Card Number
+
+N = int(input("Enter total number of cards: "))
+actual_sum = 0
+for i in range(N - 1):
+    num = int(input("Enter a remaining card number: "))
+    actual_sum += num
+expected_sum = N * (N + 1) // 2
+print("Missing card number:", expected_sum - actual_sum)

@@ -1,0 +1,6 @@
+# 50. Program to Update the First Set with Items that Don’t Exist in the Second Set
+
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+set1.update(set2 - set1)
+print("Set1 after update:", set1)

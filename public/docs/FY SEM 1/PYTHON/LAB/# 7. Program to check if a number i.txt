@@ -1,0 +1,9 @@
+# 7. Program to check if a number is positive, negative or 0
+
+n1=float(input("Enter a number: "))
+if(n1>0):
+    print(n1, "is positive")
+elif (n1<0):
+    print(n1, "is negative")
+else:
+    print(n1, "is zero")

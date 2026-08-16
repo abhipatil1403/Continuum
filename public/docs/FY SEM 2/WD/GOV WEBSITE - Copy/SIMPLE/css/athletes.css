@@ -1,0 +1,111 @@
+/* Basic styles for athletes.html */
+
+:root {
+    --primary-color: #FF5722;
+    --secondary-color: #2196F3;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+}
+
+/* Page title section */
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Featured Athletes */
+.featured-athlete {
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    margin-bottom: 30px;
+}
+
+.featured-athlete:hover {
+    transform: translateY(-10px);
+}
+
+.featured-athlete .card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.featured-athlete .card-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.athlete-stats .badge {
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+/* Regular athlete items */
+.athlete-item {
+    margin-bottom: 30px;
+}
+
+.athlete-item .card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.athlete-item .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.athlete-item .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.athlete-item .card-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.athlete-item .text-muted {
+    font-size: 0.9rem;
+}
+
+.athlete-item i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+/* Modal styles */
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.modal-body .img-fluid {
+    border-radius: 5px;
+}
+
+.athlete-stats h6 {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+}

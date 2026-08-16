@@ -1,0 +1,7 @@
+# 53. Remove items from set1 that are not common to both set1 and set2
+
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
+# 53. Remove items from set1 that are not common to both set1 and set2
+set1 &= set2  # Intersection of set1 and set2
+print("Set1 after removing non-common elements:", set1)

@@ -1,0 +1,5 @@
+# 57. Function with default arguments
+
+def greet_with_default(name="Guest", message="Welcome!"):
+    return f"Hello, {name}. {message}"
+print(greet_with_default("Abhishek", "You are great!"))

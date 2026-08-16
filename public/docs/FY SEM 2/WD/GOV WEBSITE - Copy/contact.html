@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - KhelConnect</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="text-white">
+        <div class="container py-3">
+            <!-- Empty header to maintain spacing for navbar -->
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand me-3" href="index.html">
+                <img src="images/khel2.png" alt="KhelConnect Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="athletes.html"><i class="fas fa-running"></i> Athletes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html"><i class="fas fa-newspaper"></i> News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="search.html" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Search" name="q" id="search-input" required>
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                <div class="d-flex ms-2">
+                    <a href="login.html" class="btn btn-outline-light"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="display-4 mb-3">Contact Us</h2>
+                    <p class="lead">Get in touch with the Sports Department of the Government of India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Contact Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h6><i class="fas fa-map-marker-alt text-primary me-2"></i> Address</h6>
+                            <p class="mb-0">Sports Department</p>
+                            <p class="mb-0">Ministry of Youth Affairs and Sports</p>
+                            <p class="mb-0">Shastri Bhawan, New Delhi - 110001</p>
+                            <p>India</p>
+                        </div>
+                        <div class="mb-4">
+                            <h6><i class="fas fa-phone text-primary me-2"></i> Phone</h6>
+                            <p class="mb-0">+91 11 2309 XXXX (General Inquiries)</p>
+                            <p>+91 11 2307 XXXX (Events & Registration)</p>
+                        </div>
+                        <div class="mb-4">
+                            <h6><i class="fas fa-envelope text-primary me-2"></i> Email</h6>
+                            <p class="mb-0">contact@khelconnect.gov.in</p>
+                            <p>events@khelconnect.gov.in</p>
+                        </div>
+                        <div>
+                            <h6><i class="fas fa-clock text-primary me-2"></i> Office Hours</h6>
+                            <p class="mb-0">Monday - Friday: 9:00 AM - 5:30 PM</p>
+                            <p>Saturday: 9:00 AM - 1:00 PM (Public Desk only)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-8 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Send Us a Message</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info non-auth-content mb-3">
+                            <i class="fas fa-info-circle me-2"></i> Please <a href="login.html">log in</a> or <a href="signup.html">create an account</a> to submit a message.
+                        </div>
+                        <form id="contact-form" class="requires-auth">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="department" class="form-label">Department</label>
+                                <select class="form-select" id="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Event Registration">Event Registration</option>
+                                    <option value="Athlete Support">Athlete Support</option>
+                                    <option value="Media & Press">Media & Press</option>
+                                    <option value="Technical Support">Technical Support</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="privacy-policy" required>
+                                <label class="form-check-label" for="privacy-policy">
+                                    I have read and agree to the Privacy Policy
+                                </label>
+                            </div>
+                            <div class="text-end">
+                                <button type="reset" class="btn btn-outline-secondary me-2">Reset</button>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map and Directions -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Location & Directions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="ratio ratio-16x9">
+                            <!-- Embedded Google Maps iframe -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.8351064131727!2d77.21096731508346!3d28.61493798242535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd2718af1fa1%3A0xd6c11c0ae55d32cd!2sShastri%20Bhawan!5e0!3m2!1sen!2sin!4v1621345678901!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5>Public Transport</h5>
+                                <ul>
+                                    <li>Metro: Central Secretariat Metro Station (Yellow & Violet Line)</li>
+                                    <li>Bus: Routes 181, 502, 505 stop at Shastri Bhawan</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Parking</h5>
+                                <p>Limited visitor parking is available. Please call ahead to reserve a spot for your visit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3 class="section-title">Frequently Asked Questions</h3>
+                <div class="accordion" id="contactFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How do I register for a sports event?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#contactFAQ">
+                            <div class="accordion-body">
+                                You can register for sports events through our <a href="events.html">Events</a> page. Each event listing has a registration button that will guide you through the process. Alternatively, you can contact our Events team at events@khelconnect.gov.in.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How can I get support for athlete development programs?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#contactFAQ">
+                            <div class="accordion-body">
+                                The Sports Department offers various development programs for athletes at different levels. Please contact our Athlete Support team with details about your sport, achievements, and requirements. They will guide you through the available programs and eligibility criteria.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                How can media organizations get press credentials for events?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#contactFAQ">
+                            <div class="accordion-body">
+                                Media organizations can apply for press credentials by contacting our Media & Press department at least 14 days before the event. Please include your organization details, the event you wish to cover, and the names of team members requiring access.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>KhelConnect</h5>
+                    <p>Sports Department, Government of India</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    <p><i class="fas fa-phone"></i> +91 11 2309 XXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@khelconnect.gov.in</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="events.html" class="text-white">Events</a></li>
+                        <li><a href="athletes.html" class="text-white">Athletes</a></li>
+                        <li><a href="news.html" class="text-white">News</a></li>
+                        <li><a href="gallery.html" class="text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="text-white">Privacy Policy</a> |
+                        <a href="#" class="text-white">Terms of Use</a> |
+                        <a href="#" class="text-white">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <p>&copy; 2025 KhelConnect, Sports Department, Government of India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- Auth JS -->
+    <script src="js/auth.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Contact form submission
+        $(document).ready(function() {
+            $('#contact-form').on('submit', function(event) {
+                event.preventDefault();
+                
+                // Show success message
+                const form = $(this);
+                form.slideUp(300, function() {
+                    const successMessage = $(`
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading"><i class="fas fa-check-circle"></i> Message Sent Successfully!</h4>
+                            <p>Thank you for contacting us. We have received your message and will respond to you shortly.</p>
+                            <hr>
+                            <p class="mb-0">Reference ID: CONT-${Math.floor(Math.random() * 10000)}</p>
+                        </div>
+                    `).hide();
+                    
+                    form.after(successMessage);
+                    successMessage.slideDown(300);
+                    
+                    // Add button to send another message
+                    const sendAnotherBtn = $(`
+                        <button class="btn btn-primary mt-3">Send Another Message</button>
+                    `).hide();
+                    
+                    successMessage.after(sendAnotherBtn);
+                    sendAnotherBtn.slideDown(300);
+                    
+                    // Reset form
+                    form[0].reset();
+                    
+                    // Handle send another button
+                    sendAnotherBtn.on('click', function() {
+                        successMessage.slideUp(300, function() {
+                            $(this).remove();
+                        });
+                        sendAnotherBtn.slideUp(300, function() {
+                            $(this).remove();
+                        });
+                        form.slideDown(300);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

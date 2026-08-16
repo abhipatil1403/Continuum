@@ -1,0 +1,8 @@
+# 26. Program to display first n Fibonacci numbers
+
+n = int(input("Enter a number for Fibonacci sequence: "))
+a, b = 0, 1
+print("\nFirst", n, "Fibonacci numbers:")
+for i in range(n):
+    print(a)
+    a, b = b, a + b

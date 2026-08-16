@@ -1,0 +1,7 @@
+# 24. Program to calculate sum and average of first n numbers
+
+n = int(input("Enter a number for sum and average: "))
+sum_n = (n * (n + 1)) // 2  # Sum of first n numbers formula
+average = sum_n / n
+print("Sum:", sum_n)
+print("Average:", average)

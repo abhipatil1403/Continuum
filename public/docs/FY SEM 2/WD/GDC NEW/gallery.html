@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - DSC VIT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 50%, #FBBC05 100%);
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="images/DSC.png" alt="DSC Logo" class="h-12 w-12">
+                <span class="ml-3 text-xl font-bold gradient-text">DSC VIT</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+                <a href="index.html#events" class="text-gray-700 hover:text-blue-600 font-medium">Events</a>
+                <a href="index.html#team" class="text-gray-700 hover:text-blue-600 font-medium">Team</a>
+                <a href="projects.html" class="text-gray-700 hover:text-blue-600 font-medium">Projects</a>
+                <a href="gallery.html" class="text-blue-600 font-medium">Gallery</a>
+                <a href="resources.html" class="text-gray-700 hover:text-blue-600 font-medium">Resources</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+            </div>
+            
+            <!-- Login/Profile Section -->
+            <div class="hidden md:block">
+                <!-- Not logged in state (default) -->
+                <div id="loginSection" class="flex space-x-3">
+                    <a href="login.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-medium">Login</a>
+                    <a href="signup.html" class="border-2 border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300 font-medium">Sign Up</a>
+                </div>
+                
+                <!-- Logged in state (hidden by default) -->
+                <div id="profileSection" class="hidden relative">
+                    <button id="profileDropdownButton" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 font-medium">
+                        <span id="userName">User Name</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="profileDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden z-50">
+                        <a href="#" id="logoutButton" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <div class="md:hidden hidden bg-white w-full py-2 px-4 shadow-md" id="mobile-menu">
+            <a href="index.html#home" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+            <a href="index.html#events" class="block py-2 text-gray-700 hover:text-blue-600">Events</a>
+            <a href="index.html#team" class="block py-2 text-gray-700 hover:text-blue-600">Team</a>
+            <a href="projects.html" class="block py-2 text-gray-700 hover:text-blue-600">Projects</a>
+            <a href="gallery.html" class="block py-2 text-blue-600">Gallery</a>
+            <a href="resources.html" class="block py-2 text-gray-700 hover:text-blue-600">Resources</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+            
+            <!-- Mobile Login/Profile Section -->
+            <div id="mobileLoginSection" class="py-2">
+                <a href="login.html" class="block py-2 text-blue-600 font-medium">Login</a>
+                <a href="signup.html" class="block py-2 text-blue-600 font-medium">Sign Up</a>
+            </div>
+            
+            <!-- Mobile Logged in state (hidden by default) -->
+            <div id="mobileProfileSection" class="hidden py-2">
+                <div class="block py-2 text-gray-700">
+                    <span id="mobileUserName">User Name</span>
+                </div>
+                <a href="#" id="mobileLogoutButton" class="block py-2 text-red-600 hover:text-red-700">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="relative w-full">
+        <video class="w-full h-screen object-cover" autoplay loop muted playsinline>
+            <source src="video/bgvideo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-40">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">Our Gallery</h1>
+            <p class="text-xl md:text-2xl text-white max-w-3xl text-center px-4">Welcome to a showcase of innovation, creativity, and technological excellence</p>
+        </div>
+    </div>
+
+    <div class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <!-- First row with continuous images -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/1.jpg" alt="Gallery Image 1" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/2.jpg" alt="Gallery Image 2" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/3.jpg" alt="Gallery Image 3" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Instagram-style grid for remaining images -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/gallery1.jpg" alt="Gallery Image 4" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/gallery2.jpg" alt="Gallery Image 5" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/gallery3.jpg" alt="Gallery Image 6" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/gallery4.jpg" alt="Gallery Image 7" class="w-full h-full object-cover">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 aspect-square">
+                    <img src="images/gallery5.jpg" alt="Gallery Image 8" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/DSC.png" alt="DSC Logo" class="h-10 w-10">
+                        <span class="ml-2 text-xl font-bold gradient-text">DSC VIT</span>
+                    </div>
+                    <p class="text-gray-400">Developer Student Clubs VIT is a Google Developers program for university students to learn mobile and web development skills.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                        <li><a href="index.html#events" class="text-gray-400 hover:text-white transition duration-300">Events</a></li>
+                        <li><a href="index.html#team" class="text-gray-400 hover:text-white transition duration-300">Team</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition duration-300">Projects</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300">Gallery</a></li>
+                        <li><a href="resources.html" class="text-gray-400 hover:text-white transition duration-300">Resources</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Technologies</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Android</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cloud Computing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Machine Learning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-400 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-600 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">dscvitpune@vit.edu</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 DSC VIT. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Code of Conduct</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        if (backToTopButton) {
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Login/Logout Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is logged in (using localStorage for demo)
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const userName = localStorage.getItem('userName') || 'User Name';
+            
+            // Profile dropdown toggle
+            const profileDropdownButton = document.getElementById('profileDropdownButton');
+            const profileDropdown = document.getElementById('profileDropdown');
+            
+            if (profileDropdownButton) {
+                profileDropdownButton.addEventListener('click', function() {
+                    profileDropdown.classList.toggle('hidden');
+                });
+            }
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (profileDropdownButton && !profileDropdownButton.contains(event.target) && 
+                    profileDropdown && !profileDropdown.contains(event.target)) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+            
+            // Update UI based on login state
+            function updateUIForLoginState() {
+                const loginSection = document.getElementById('loginSection');
+                const profileSection = document.getElementById('profileSection');
+                const mobileLoginSection = document.getElementById('mobileLoginSection');
+                const mobileProfileSection = document.getElementById('mobileProfileSection');
+                const userNameElements = document.querySelectorAll('#userName, #mobileUserName');
+                
+                if (isLoggedIn) {
+                    // Desktop
+                    if (loginSection) loginSection.classList.add('hidden');
+                    if (profileSection) profileSection.classList.remove('hidden');
+                    
+                    // Mobile
+                    if (mobileLoginSection) mobileLoginSection.classList.add('hidden');
+                    if (mobileProfileSection) mobileProfileSection.classList.remove('hidden');
+                    
+                    // Update username
+                    userNameElements.forEach(el => {
+                        el.textContent = userName;
+                    });
+                } else {
+                    // Desktop
+                    if (loginSection) loginSection.classList.remove('hidden');
+                    if (profileSection) profileSection.classList.add('hidden');
+                    
+                    // Mobile
+                    if (mobileLoginSection) mobileLoginSection.classList.remove('hidden');
+                    if (mobileProfileSection) mobileProfileSection.classList.add('hidden');
+                }
+            }
+            
+            // Handle logout
+            const logoutButtons = document.querySelectorAll('#logoutButton, #mobileLogoutButton');
+            logoutButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userName');
+                    localStorage.removeItem('userEmail');
+                    
+                    // Force page reload to ensure all UI elements update correctly
+                    window.location.reload();
+                });
+            });
+            
+            // Initial UI update
+            updateUIForLoginState();
+        });
+    </script>
+</body>
+</html>

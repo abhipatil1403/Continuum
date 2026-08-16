@@ -1,0 +1,105 @@
+@import './styles/tokens.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/inter/800.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus ring utility — accessible, visible */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* From Uiverse.io by Darlley */ 
+#cursor,
+#box,
+#text {
+  cursor: pointer;
+}
+#cursor {
+  overflow: visible;
+  transform: translate3d(300px, 0, 0) scale(1);
+  transform-origin: center center;
+  transform-box: fill-box;
+  animation: cursor 5s ease infinite alternate;
+}
+@keyframes cursor {
+  0% {
+    opacity: 0;
+    transform: translate3d(300px, 0, 0) scale(1);
+  }
+  30% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(-200px, -200px, 0) scale(1);
+  }
+
+  /* clique */
+  65% {
+    opacity: 1;
+    transform: translate3d(-200px, -200px, 0) scale(0.95);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(-200px, -200px, 0) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(-300px, -50px, 0) scale(1);
+  }
+}
+
+#box {
+  opacity: 0;
+  animation: box 5s ease infinite alternate;
+}
+@keyframes box {
+  0%,
+  60% {
+    opacity: 0;
+  }
+  65%,
+  100% {
+    opacity: 1;
+  }
+}

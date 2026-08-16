@@ -1,0 +1,8 @@
+Q1
+Consider a data table which consists of employee ID, first name and last name fields. Create a table of pay report which consists of employee ID and pay. Use vlookup function to get first name and last name of all the employees.
+
+Q2
+Use the same example to perform vlookup using approximate matching
+
+Q3
+Use the same example to perform xlookup to get first name and last name of all the employees.

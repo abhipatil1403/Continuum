@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Workout Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active" data-section="home">Home</a>
+                <a href="#workout" class="nav-link" data-section="workout">Start Workout</a>
+                <a href="#progress" class="nav-link" data-section="progress">My Progress</a>
+                <a href="#nutrition" class="nav-link" data-section="nutrition">Nutrition</a>
+                <a href="#profile" class="nav-link" data-section="profile">Profile</a>
+                <a href="#dbms" class="nav-link" data-section="dbms">Analytics & Insights</a>
+                <button class="logout-btn" onclick="app.logout()" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <div class="welcome-section">
+                    <div class="welcome-content">
+                        <h1>Welcome to Your Workout Planner!</h1>
+                        <p>Track your fitness journey, discover new exercises, and achieve your goals.</p>
+                        <div class="quick-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-dumbbell"></i>
+                                <span id="user-workouts">0</span>
+                                <label>Workouts</label>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-fire"></i>
+                                <span id="user-calories">0</span>
+                                <label>Calories Burned</label>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-trophy"></i>
+                                <span id="user-streak">0</span>
+                                <label>Day Streak</label>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary btn-large" onclick="app.showSection('workout')">
+                                <i class="fas fa-play"></i> Start Workout
+                            </button>
+                            <button class="btn btn-secondary btn-large" onclick="app.showSection('progress')">
+                                <i class="fas fa-chart-line"></i> View Progress
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workout Section -->
+            <section id="workout" class="content-section">
+                <div class="section-header">
+                </div>
+
+                <!-- Step 1: Equipment Selection -->
+                <div class="workout-step active" id="equipment-step">
+                    <h3>Step 1: Choose Your Equipment</h3>
+                    <div class="equipment-grid" id="equipment-grid">
+                        <!-- Equipment will be loaded here -->
+                    </div>
+                    <button class="btn btn-primary" id="next-to-exercises" onclick="app.proceedToExercises()" disabled>
+                        Next: Choose Exercises <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Step 2: Exercise Selection -->
+                <div class="workout-step" id="exercises-step">
+                    <h3>Step 2: Select Your Exercises</h3>
+                    <div class="selected-equipment">
+                        <span id="selected-equipment-name"></span>
+                        <button class="btn btn-secondary btn-sm" onclick="app.backToEquipment()">
+                            <i class="fas fa-edit"></i> Change Equipment
+                        </button>
+                    </div>
+                    <div class="exercises-grid" id="exercises-grid">
+                        <!-- Exercises will be loaded here -->
+                    </div>
+                    <button class="btn btn-primary" id="next-to-workout" onclick="app.proceedToWorkout()" disabled>
+                        Next: Start Workout <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Step 3: Active Workout -->
+                <div class="workout-step" id="active-workout-step">
+                    <div class="workout-header">
+                        <h3>Step 3: Your Workout</h3>
+                        <div class="workout-stats-bar">
+                            <div class="stat-item">
+                                <i class="fas fa-dumbbell"></i>
+                                <span id="exercises-completed">0</span>
+                                <label>Exercises</label>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-layer-group"></i>
+                                <span id="sets-completed">0</span>
+                                <label>Sets</label>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-fire"></i>
+                                <span id="calories-burned">0</span>
+                                <label>Calories</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workout-timer">
+                        <div class="timer-display">
+                            <div class="timer-circle">
+                                <span id="workout-time">00:00</span>
+                            </div>
+                        </div>
+                        <div class="timer-controls">
+                            <button class="btn btn-success btn-large" id="start-timer" onclick="app.startWorkoutTimer()">
+                                <i class="fas fa-play"></i> Start Workout
+                            </button>
+                            <button class="btn btn-warning btn-large" id="pause-timer" onclick="app.pauseWorkoutTimer()" disabled>
+                                <i class="fas fa-pause"></i> Pause
+                            </button>
+                            <button class="btn btn-danger btn-large" id="stop-timer" onclick="app.stopWorkoutTimer()" disabled>
+                                <i class="fas fa-stop"></i> Stop
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="workout-exercises" id="workout-exercises">
+                        <!-- Selected exercises will be shown here -->
+                    </div>
+
+                    <div class="workout-actions">
+                        <button class="btn btn-primary btn-large" onclick="app.saveWorkout()">
+                            <i class="fas fa-save"></i> Save Workout
+                        </button>
+                        <button class="btn btn-secondary btn-large" onclick="app.cancelWorkout()">
+                            <i class="fas fa-times"></i> Cancel Workout
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section id="progress" class="content-section">
+                <div class="section-header">
+                </div>
+
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="total-workouts">0</h3>
+                            <p>Total Workouts</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="total-calories">0</h3>
+                            <p>Calories Burned</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="total-time">0h</h3>
+                            <p>Total Time</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="current-streak">0</h3>
+                            <p>Day Streak</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-workouts">
+                    <h3>Recent Workouts</h3>
+                    <div class="workouts-list" id="recent-workouts-list">
+                        <!-- Recent workouts will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="exercise-progress">
+                    <h3>Exercise Progress</h3>
+                    <div class="progress-chart" id="exercise-progress-chart">
+                        <!-- Exercise progress will be shown here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nutrition Section -->
+            <section id="nutrition" class="content-section">
+                <div class="section-header">
+                </div>
+
+                <!-- Recipes Tab -->
+                <div id="recipes-tab" class="nutrition-content active">
+                    <div class="recipe-actions">
+                        <button class="btn btn-primary" onclick="app.showCreateRecipeForm()">
+                            <i class="fas fa-plus"></i> Add New Recipe
+                        </button>
+                    </div>
+                    <div class="recipe-filters">
+                        <input type="text" id="recipe-search" placeholder="Search recipes..." onkeyup="app.searchRecipes()">
+                        <select id="type-filter" onchange="app.filterRecipes()">
+                            <option value="">All Types</option>
+                            <option value="Veg">Vegetarian</option>
+                            <option value="Non-Veg">Non-Vegetarian</option>
+                        </select>
+                        <select id="meal-type-filter" onchange="app.filterRecipes()">
+                            <option value="">All Meal Types</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Snack">Snack</option>
+                        </select>
+                    </div>
+                    <div class="recipes-grid" id="recipes-grid">
+                        <!-- Recipes will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Recommendations Tab -->
+                <div id="recommendations-tab" class="nutrition-content">
+                    <h3>Your Personalized Recommendations</h3>
+                    <div class="recommendations-list" id="recommendations-list">
+                        <!-- Recommendations will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Meal Plan Tab -->
+                <div id="meal-plan-tab" class="nutrition-content">
+                    <h3>Weekly Meal Plan</h3>
+                    <div class="meal-plan-calendar" id="meal-plan-calendar">
+                        <!-- Meal plan will be shown here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <div class="section-header">
+                </div>
+
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-details">
+                            <h3 id="user-name">Loading...</h3>
+                            <p id="user-email">Loading...</p>
+                            <div class="profile-stats">
+                                <div class="stat">
+                                    <span class="label">Age:</span>
+                                    <span id="user-age">-</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Height:</span>
+                                    <span id="user-height">-</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Weight:</span>
+                                    <span id="user-weight">-</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">BMI:</span>
+                                    <span id="user-bmi">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-primary" onclick="app.editProfile()">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                        <button class="btn btn-info" onclick="app.viewTriggerLogs()">
+                            <i class="fas fa-database"></i> View Triggers
+                        </button>
+                        <button class="btn btn-danger" onclick="app.deleteAccount()">
+                            <i class="fas fa-trash-alt"></i> Delete Account
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Analytics & Insights Section -->
+            <section id="dbms" class="content-section">
+                <div class="section-header">
+                </div>
+
+                <div class="dbms-tabs">
+					<button class="tab-btn active" onclick="showDBMSTab('joins')">Workout Insights</button>
+					<button class="tab-btn" onclick="showDBMSTab('views')">Performance Reports</button>
+                </div>
+
+                <div id="joins-content" class="dbms-content active">
+                    <h3>Workout Insights</h3>
+                    <p class="section-description">Explore comprehensive workout data and relationships across exercises, equipment, and training history</p>
+                    <div class="joins-container">
+                        <div class="join-selector">
+                            <label for="join-select">Select Insight Type:</label>
+                            <select id="join-select" onchange="executeJoin()">
+                                <option value="">Choose an insight...</option>
+                                <option value="1">My Workout History</option>
+                                <option value="2">Exercise & Equipment Details</option>
+                                <option value="3">Complete Workout Analysis</option>
+                                <option value="4">My Diet Recommendations</option>
+                                <option value="5">Complete Nutrition Details</option>
+                                <option value="6">All Users Workout Comparison</option>
+                                <option value="7">Most Popular Exercises</option>
+                                <option value="8">Equipment Usage Analysis</option>
+                            </select>
+                        </div>
+                        
+                        <div class="join-results" id="join-results">
+                            <div class="join-description" id="join-description" style="display: none;">
+                                <!-- Join description will be inserted here -->
+                            </div>
+                            <div class="results-table-container" id="results-table-container" style="display: none;">
+                                <div class="table-header">
+                                    <h4 id="join-title">Join Results</h4>
+                                    <div class="table-actions">
+                                        <button class="btn btn-secondary btn-sm" onclick="exportJoinResults()">
+                                            <i class="fas fa-download"></i> Export
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm" onclick="clearJoinResults()">
+                                            <i class="fas fa-times"></i> Clear
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-wrapper">
+                                    <table class="results-table" id="results-table">
+                                        <thead id="results-thead">
+                                            <!-- Table headers will be inserted here -->
+                                        </thead>
+                                        <tbody id="results-tbody">
+                                            <!-- Table data will be inserted here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-footer">
+                                    <span id="results-count">0 results</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div id="views-content" class="dbms-content">
+					<h3>Performance Reports</h3>
+					<p class="section-description">Access pre-built performance reports and analytics summaries for quick insights into your fitness journey</p>
+					<div class="views-container">
+						<div class="views-selector">
+							<label for="views-select">Select Report Type:</label>
+							<select id="views-select" onchange="renderSelectedView()">
+								<option value="">Choose a report...</option>
+							</select>
+						</div>
+					</div>
+					<div class="join-results" id="views-results">
+						<div class="results-table-container" id="views-table-container" style="display: none;">
+							<div class="table-header">
+								<h4 id="views-title">Report Results</h4>
+								<div class="table-actions">
+									<button class="btn btn-secondary btn-sm" onclick="clearViewResults()">
+										<i class="fas fa-times"></i> Clear
+									</button>
+								</div>
+							</div>
+							<div class="table-wrapper">
+								<table class="results-table" id="views-table">
+									<thead id="views-thead"></thead>
+									<tbody id="views-tbody"></tbody>
+								</table>
+							</div>
+							<div class="table-footer">
+								<span id="views-count">0 results</span>
+							</div>
+						</div>
+					</div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Modal Title</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Modal content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Edit Modal -->
+    <div id="profile-edit-modal" class="modal-overlay">
+        <div class="modal profile-modal">
+            <div class="modal-header">
+                <h3>Edit Profile</h3>
+                <button class="modal-close" onclick="app.closeProfileEdit()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="profile-edit-form" class="profile-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-name">Name</label>
+                            <input type="text" id="edit-name" name="name">
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-email">Email</label>
+                            <input type="email" id="edit-email" name="email">
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-age">Age</label>
+                            <input type="number" id="edit-age" name="age">
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-gender">Gender</label>
+                            <select id="edit-gender" name="gender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-height">Height (cm)</label>
+                            <input type="number" id="edit-height" name="height" step="0.1">
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-weight">Weight (kg)</label>
+                            <input type="number" id="edit-weight" name="weight" step="0.1">
+                            <div class="error-message"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bmi-preview">
+                        <div class="bmi-display">
+                            <span class="label">Calculated BMI:</span>
+                            <span id="bmi-preview">-</span>
+                            <span class="bmi-category" id="bmi-category"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="app.closeProfileEdit()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="save-profile-btn">
+                            <span class="btn-text">Save Changes</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Saving...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trigger Logs Modal -->
+    <div id="trigger-logs-modal" class="modal-overlay">
+        <div class="modal logs-modal">
+            <div class="modal-header">
+                <h3>Database Trigger Execution Logs</h3>
+                <button class="modal-close" onclick="app.closeTriggerLogs()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="logs-controls">
+                    <button class="btn btn-primary" onclick="app.refreshTriggerLogs()">
+                        <i class="fas fa-refresh"></i> Refresh Logs
+                    </button>
+                    <button class="btn btn-secondary" onclick="app.clearTriggerLogs()">
+                        <i class="fas fa-trash"></i> Clear Logs
+                    </button>
+                    <button class="btn btn-info" onclick="app.exportTriggerLogs()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+                
+                <div class="logs-summary">
+                    <h4>Trigger Summary</h4>
+                    <div id="trigger-summary" class="summary-grid">
+                        <!-- Trigger summary will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="logs-content">
+                    <h4>Recent Trigger Executions</h4>
+                    <div class="logs-list" id="trigger-logs-list">
+                        <!-- Trigger logs will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Creation Modal -->
+    <div id="recipe-modal-overlay" class="modal-overlay">
+        <div class="modal recipe-modal">
+            <div class="modal-header">
+                <h3>Add New Recipe</h3>
+                <button class="modal-close" onclick="app.closeRecipeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="recipe-form" onsubmit="app.createRecipe(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recipe-name">Recipe Name *</label>
+                            <input type="text" id="recipe-name" name="recipe_name" required placeholder="e.g., Healthy Oatmeal Bowl">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipe-type">Type *</label>
+                            <select id="recipe-type" name="type" required>
+                                <option value="">Select Type</option>
+                                <option value="Veg">Vegetarian</option>
+                                <option value="Non-Veg">Non-Vegetarian</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="meal-time">Meal Time *</label>
+                            <select id="meal-time" name="time" required>
+                                <option value="">Select Meal Time</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Snack">Snack</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prep-time">Prep Time (minutes) *</label>
+                            <input type="number" id="prep-time" name="prep_time_minutes" required min="1" placeholder="e.g., 15">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="servings">Servings *</label>
+                            <input type="number" id="servings" name="servings" required min="1" placeholder="e.g., 2">
+                        </div>
+                        <div class="form-group">
+                            <label for="calories">Calories *</label>
+                            <input type="number" id="calories" name="calories" required min="0" step="0.1" placeholder="e.g., 350">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="protein">Protein (g) *</label>
+                            <input type="number" id="protein" name="protein" required min="0" step="0.1" placeholder="e.g., 25">
+                        </div>
+                        <div class="form-group">
+                            <label for="carbs">Carbs (g) *</label>
+                            <input type="number" id="carbs" name="carbs" required min="0" step="0.1" placeholder="e.g., 30">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fats">Fats (g) *</label>
+                            <input type="number" id="fats" name="fats" required min="0" step="0.1" placeholder="e.g., 8">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ingredients">Ingredients *</label>
+                        <textarea id="ingredients" name="ingredients" required rows="3" placeholder="List all ingredients separated by commas (e.g., Oats, Banana, Honey, Almonds, Milk)"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="instructions">Instructions</label>
+                        <textarea id="instructions" name="instructions" rows="4" placeholder="Step-by-step cooking instructions (optional)"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="app.closeRecipeModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Create Recipe
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="../../supabase/config.js"></script>
+    <script src="../../supabase/client.js"></script>
+	<script src="views.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Medicine expiry tracker.
+Mobile number input and send reminders to phone number (SMS).
+Reminding Feature
+Doctor prescription adding option in new tab.
+Remind user in speech mode (loud).
+Medicine history
+
+*Accept email id and send emails (NOT FINAL).

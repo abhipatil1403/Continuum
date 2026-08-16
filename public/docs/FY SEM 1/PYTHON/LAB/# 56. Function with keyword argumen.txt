@@ -1,0 +1,6 @@
+# 56. Function with keyword arguments
+
+def greet_person(name="Guest"):
+    return f"Hello, {name}!"
+
+print(greet_person("Abhishek"))

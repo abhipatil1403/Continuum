@@ -1,0 +1,8 @@
+# 2. Program to Swap Two Variables
+
+a = input("Enter first variable: ")
+b = input("Enter second variable: ")
+temp=a
+a=b
+b=temp
+print("Swapped values:", a, b)

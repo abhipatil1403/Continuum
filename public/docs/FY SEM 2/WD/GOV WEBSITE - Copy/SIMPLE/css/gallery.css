@@ -1,0 +1,64 @@
+/* Basic styles for gallery.html */
+
+:root {
+    --primary-color: #FF5722;
+    --secondary-color: #2196F3;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+}
+
+/* Page title section */
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Gallery items */
+.gallery-item {
+    margin-bottom: 30px;
+}
+
+.gallery-item .card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-item .card-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.gallery-item .card-text {
+    color: #6c757d;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+}

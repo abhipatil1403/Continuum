@@ -1,0 +1,5 @@
+# 31. Program to Add Two Lists
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+print("Added Lists:", list1 + list2)

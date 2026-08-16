@@ -1,0 +1,8 @@
+# 37. Program to Generate Random Numbers from 1 to 20 and Append Them to the List
+
+import random 
+random_numbers = []
+for i in range(5):
+    num = random.randint(1, 20)  
+    random_numbers.append(num)
+print("Random numbers:", random_numbers)

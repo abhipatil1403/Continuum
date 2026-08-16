@@ -1,0 +1,9 @@
+# 59. Function to find the sum of the digits of the number recursively
+
+def sum_of_digits(n):
+    if n == 0:
+        return 0
+    else:
+        return n % 10 + sum_of_digits(n // 10)
+n=int(input("Enter the number:"))
+print("Sum of digits: ",sum_of_digits(n))

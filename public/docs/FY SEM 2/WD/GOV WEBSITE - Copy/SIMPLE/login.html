@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup - KhelConnect</title>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- Simple Header with Navigation -->
+    <header>
+        <img src="images/khel2.png" alt="KhelConnect Logo" class="logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="athletes.html">Athletes</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="active">Login</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="login-container">
+            <div class="tabs">
+                <button id="login-tab" class="active">Login</button>
+                <button id="signup-tab">Sign Up</button>
+            </div>
+            
+            <!-- Login Form -->
+            <div id="login-form" class="form-container">
+                <img src="images/khel3.png" alt="KhelConnect Logo" width="180">
+                <h2>Welcome Back</h2>
+                
+                <p id="login-error" class="error-message"></p>
+                
+                <form>
+                    <div>
+                        <label for="login-email">Email address:</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div>
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+            
+            <!-- Signup Form -->
+            <div id="signup-form" class="form-container hidden">
+                <img src="images/khel3.png" alt="KhelConnect Logo" width="180">
+                <h2>Create Account</h2>
+                
+                <p id="signup-error" class="error-message"></p>
+                
+                <form>
+                    <div>
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first-name" required>
+                    </div>
+                    <div>
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="last-name" required>
+                    </div>
+                    <div>
+                        <label for="signup-email">Email address:</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div>
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div>
+                        <label for="signup-password">Password:</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    <div>
+                        <label for="confirm-password">Confirm Password:</label>
+                        <input type="password" id="confirm-password" required>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="terms-agree" required>
+                        <label for="terms-agree">I agree to the Terms and Conditions</label>
+                    </div>
+                    <button type="submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+
+
+    <!-- Simple Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>KhelConnect</h3>
+                <p>Sports Department, Government of India</p>
+                <p>New Delhi, India</p>
+                <p>contact@khelconnect.gov.in</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="athletes.html">Athletes</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 KhelConnect, Sports Department, Government of India. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-info, .footer-links {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+    </style>
+    
+    <!-- Simple JavaScript for tab switching and form handling -->
+    <script src="js/login.js"></script>
+</body>
+</html>

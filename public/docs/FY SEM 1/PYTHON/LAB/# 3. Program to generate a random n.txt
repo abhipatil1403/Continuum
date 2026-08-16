@@ -1,0 +1,6 @@
+# 3. Program to generate a random number
+
+# importing the random module
+import random
+
+print(random.randint(0,100))

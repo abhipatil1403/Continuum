@@ -1,0 +1,15 @@
+Q1 Create a column chart for monthly sales and expenses. Three columns.
+
+Q2 Create a column chart for annual rainfall and snowfall in 7 cities.
+
+Q3 Create a pie chart and doughnut chart which consists of the data of the people who like different fruits (5 to 6).
+
+Q4 Create a pie chart for the number of shirts preferred by the students. How much percentage is made for each section. Size column: XS, Small, Medium, Large. Number of students: 5,10,25,20.
+
+Q5 Create a line chart for the sales of desktop, laptops and tablets for the six months.
+
+Q6 Create a line chart of high and low temperatures of one week.
+
+Q7 Create a scatter plot which shows the relationship between working hours and number of accidents that occur in the construction project. Show positive, negative and no co-relationship.
+
+Q8 Create histogram using house size and house price.

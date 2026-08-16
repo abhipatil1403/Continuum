@@ -1,0 +1,8 @@
+# 46. Program to Check Whether a Given Key Already Exists in a Dictionary
+
+my_dict = {'a': 3, 'b': 1, 'c': 2}
+key = input("Enter the key to check: ") 
+if key in my_dict:  # Check if key exists
+    print("Key", key, "exists in the dictionary")
+else:
+    print("Key", key, "does not exist in the dictionary")

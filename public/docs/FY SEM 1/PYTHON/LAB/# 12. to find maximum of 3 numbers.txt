@@ -1,0 +1,6 @@
+# 12. to find maximum of 3 numbers
+
+no1=float(input())
+no2=float(input())
+no3=float(input())
+print(max(no1,no2,no3))

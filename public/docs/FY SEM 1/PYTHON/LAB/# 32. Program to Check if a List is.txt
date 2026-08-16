@@ -1,0 +1,6 @@
+# 32. Program to Check if a List is Empty or Not
+
+if not my_list:
+    print("List is empty")
+else:
+    print("List is not empty")

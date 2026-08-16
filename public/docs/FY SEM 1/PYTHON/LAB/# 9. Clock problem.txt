@@ -1,0 +1,13 @@
+# 9. Clock problem
+
+    # Hour hand= 360/12=30 degree
+    # Minute hand=30/60=0.5 degree
+    # Second hand=0.5/60=1/120degree
+
+H=int(input("Enter the hour hand value"))
+M=int(input("Enter the minute hand value"))
+S=int(input("Enter the second hand value"))
+
+angle = (H % 12) * 30 + M * 0.5 + S * (1 / 120)
+
+print(angle," Degrees")

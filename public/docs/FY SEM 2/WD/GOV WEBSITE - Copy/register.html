@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KhelConnect - Event Registration - Sports Department of the Government of India">
+    <meta name="keywords" content="register, events, sports, india, government">
+    <meta name="author" content="Sports Department, Government of India">
+    <title>Event Registration - KhelConnect - Sports Department of India</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section - Empty for clean hero display -->
+    <header class="text-white">
+        <div class="container py-3">
+            <!-- Empty header to maintain spacing for navbar -->
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand me-3" href="index.html">
+                <img src="images/khel2.png" alt="KhelConnect Logo" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="athletes.html"><i class="fas fa-running"></i> Athletes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html"><i class="fas fa-newspaper"></i> News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="search.html" method="get">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q" id="search-input" required>
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                <div class="d-flex ms-2">
+                    <a href="login.html" class="btn btn-outline-light"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Title -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="display-4 mb-3 page-heading">Event Registration</h2>
+                    <p class="lead">Complete the form below to register for the event</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- Event Details -->
+        <div id="event-details" class="mb-4">
+            <!-- Event details will be populated dynamically -->
+        </div>
+        
+        <!-- Registration Form -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Registration Form</h5>
+            </div>
+            <div class="card-body">
+                <form id="registration-form" class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="first-name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="first-name" required>
+                            <div class="invalid-feedback">Please enter your first name</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="last-name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="last-name" required>
+                            <div class="invalid-feedback">Please enter your last name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">Please enter a valid email address</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                            <div class="invalid-feedback">Please enter your phone number</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="2" required></textarea>
+                        <div class="invalid-feedback">Please enter your address</div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" required>
+                            <div class="invalid-feedback">Please enter your city</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="state" class="form-label">State</label>
+                            <select class="form-select" id="state" required>
+                                <option value="">Select State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Delhi">Delhi</option>
+                            </select>
+                            <div class="invalid-feedback">Please select your state</div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="pincode" class="form-label">PIN Code</label>
+                            <input type="text" class="form-control" id="pincode" required>
+                            <div class="invalid-feedback">Please enter your PIN code</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="id-type" class="form-label">ID Type</label>
+                            <select class="form-select" id="id-type" required>
+                                <option value="">Select ID Type</option>
+                                <option value="Aadhar Card">Aadhar Card</option>
+                                <option value="Passport">Passport</option>
+                                <option value="Voter ID">Voter ID</option>
+                                <option value="Driving License">Driving License</option>
+                            </select>
+                            <div class="invalid-feedback">Please select an ID type</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id-number" class="form-label">ID Number</label>
+                        <input type="text" class="form-control" id="id-number" required>
+                        <div class="invalid-feedback">Please enter your ID number</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Participation Category</label>
+                        <select class="form-select" id="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Team">Team</option>
+                            <option value="School/College">School/College</option>
+                            <option value="Club">Club</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a participation category</div>
+                    </div>
+                    
+                    <div class="mb-3 team-details d-none">
+                        <label for="team-name" class="form-label">Team/Organization Name</label>
+                        <input type="text" class="form-control" id="team-name">
+                        <div class="invalid-feedback">Please enter your team name</div>
+                    </div>
+                    
+                    <div class="mb-3 team-details d-none">
+                        <label for="team-members" class="form-label">Number of Team Members</label>
+                        <input type="number" class="form-control" id="team-members" min="1" max="30">
+                        <div class="invalid-feedback">Please enter the number of team members</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="experience" class="form-label">Experience Level</label>
+                        <select class="form-select" id="experience" required>
+                            <option value="">Select Experience Level</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Professional">Professional</option>
+                        </select>
+                        <div class="invalid-feedback">Please select your experience level</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="special-requirements" class="form-label">Special Requirements (if any)</label>
+                        <textarea class="form-control" id="special-requirements" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="terms-conditions" required>
+                        <label class="form-check-label" for="terms-conditions">
+                            I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#terms-modal">Terms and Conditions</a>
+                        </label>
+                        <div class="invalid-feedback">You must agree to the terms and conditions</div>
+                    </div>
+                    
+                    <div class="text-end">
+                        <a href="events.html" class="btn btn-outline-secondary me-2">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Submit Registration</button>
+                    </div>
+                </form>
+                
+                <!-- Success Message (hidden by default) -->
+                <div id="registration-success" class="d-none">
+                    <div class="text-center py-4">
+                        <i class="fas fa-check-circle text-success fa-4x mb-3"></i>
+                        <h4>Registration Successful!</h4>
+                        <p>Your registration for <span id="success-event-name"></span> has been submitted successfully.</p>
+                        <p>Registration ID: <strong id="registration-id"></strong></p>
+                        <p>We have sent a confirmation email to your registered email address.</p>
+                        <div class="mt-4">
+                            <a href="events.html" class="btn btn-primary">Back to Events</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>KhelConnect</h5>
+                    <p>Sports Department, Government of India</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                    <p><i class="fas fa-phone"></i> +91 11 2309 XXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@khelconnect.gov.in</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white">Home</a></li>
+                        <li><a href="events.html" class="text-white">Events</a></li>
+                        <li><a href="athletes.html" class="text-white">Athletes</a></li>
+                        <li><a href="news.html" class="text-white">News</a></li>
+                        <li><a href="gallery.html" class="text-white">Gallery</a></li>
+                        <li><a href="contact.html" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="text-white">Privacy Policy</a> |
+                        <a href="#" class="text-white">Terms of Use</a> |
+                        <a href="#" class="text-white">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <p>&copy; 2025 KhelConnect, Sports Department, Government of India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade" id="terms-modal" tabindex="-1" aria-labelledby="terms-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="terms-modal-title">Terms and Conditions</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Registration and Participation</h6>
+                    <p>By registering for this event, you confirm that all information provided is accurate and complete. Participants must meet all eligibility requirements specified for the event.</p>
+                    
+                    <h6>2. Cancellation Policy</h6>
+                    <p>Cancellations made more than 14 days before the event are eligible for a full refund. Cancellations made between 7-14 days before the event are eligible for a 50% refund. No refunds will be issued for cancellations made less than 7 days before the event.</p>
+                    
+                    <h6>3. Code of Conduct</h6>
+                    <p>All participants are expected to conduct themselves in a sportsmanlike manner. Any form of discrimination, harassment, or unsportsmanlike behavior may result in disqualification without refund.</p>
+                    
+                    <h6>4. Media Release</h6>
+                    <p>By registering, you grant permission to the Sports Department, Government of India to use photographs, videos, and recordings of you during the event for promotional and documentation purposes.</p>
+                    
+                    <h6>5. Health and Safety</h6>
+                    <p>Participants are responsible for their own health and safety. The organizers are not liable for any injuries or health issues that may occur during the event. Participants should have appropriate health insurance coverage.</p>
+                    
+                    <h6>6. Data Privacy</h6>
+                    <p>Personal information collected during registration will be used solely for event management purposes and will be handled in accordance with the Privacy Policy of the Sports Department, Government of India.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- Auth JS -->
+    <script src="js/auth.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/data.js"></script>
+    <script>
+        // Make sure appData is available globally
+        window.appData = appData;
+    </script>
+    <script src="js/classes.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/registration.js"></script>
+</body>
+</html>

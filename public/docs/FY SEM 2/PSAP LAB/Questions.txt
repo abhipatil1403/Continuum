@@ -1,0 +1,90 @@
+Q1
+circle, triangle and rectangle.
+if the circle below is taller than square and triangle is shorter than the square, put a 'k' in the circle and if this is not the case then put 't' in the second tallest figure
+Algorithm: 
+Step 1: Read the given conditions:
+The circle is taller than the rectangle.
+The triangle is shorter than the rectangle.
+Step 2: Evaluate the conditions:
+If both conditions are true, proceed to Step 3.
+If either condition is false, proceed to Step 4.
+Step 3: Place the letter 'k' inside the circle.
+Step 4: Determine the second tallest figure.
+Step 5: Place the letter 't' inside the second tallest figure.
+
+Q2
+Bill, Judy, Sally have the occupation of the teacher, plumber and teamster, But not necessary in that order. Bill is shorter than Judy but taller than Sally. The plumber is the tallest and teamster is the shortest, what is the Judy's occupation?
+Algorithm:
+Step 1: Read the given information:
+Occupations: Teacher, plumber, teamster.
+Bill is shorter than Judy but taller than Sally.
+The plumber is the tallest.
+The teamster is the shortest.
+Step 2: Deduce the height order: Judy > Bill > Sally.
+Step 3: Assign the tallest occupation (plumber) to the tallest person (Judy).
+Step 4: Assign the shortest occupation (teamster) to the shortest person (Sally).
+Step 5: Assign the remaining occupation (teacher) to the remaining person (Bill).
+Step 6: Output Judy's occupation (plumber).
+
+Q3
+If the second letter in the word 'west' comes after the fourth letter in the alphabet, circle the letter 'a' below if it is not circle the letter 'b'.
+Algorithm:
+Step 1: Read the word "west".
+Step 2: Identify the second letter: "e".
+Step 3: Identify the fourth letter of the alphabet: "d".
+Step 4: Compare the positions of "e" and "d" in the alphabet.
+Step 5: If "e" comes after "d", circle the letter "a".
+Step 6: If "e" does not come after "d", circle the letter "b".
+
+
+
+
+1.  Explain the Problem-Solving Life Cycle Steps, apply it to the following problem. Write down the algorithm (general stepwise execution) & draw the flowchart.
+	a. There is a goat, a tiger, a man and a bundle of grass on one side of a 		river. There's a boat which can only carry two at a time and can only be 	rowed manually by the man. How can they cross the river
+	b. There are FOUR temples, one plant of flower and a pond. A boy goes 	there and before entering the first temple he plucks the flower and has to 	take a bath in the pond before entering into every temple. The specialty of 	the pond is that if a person is carrying flowers with him and he takes a dip 	in the pond the number of the flowers gets doubled. He takes a dip and 	offers some flowers in the first temple, then he again takes a dip and offers 	flowers in second temple, and again the same in the third temple. The boy 	offers EQUAL number of flowers in all the 3 temples and goes back with 	EMPTY hand after offering flower in the third temple. How many flowers 	could he have offered in each temple?
+Solution:
+
+(a) Flowchart for River Crossing Problem
+1.	Start
+2.	Man takes the goat across the river and leaves it there.
+3.	Man returns alone to the starting side.
+4.	Man takes the tiger across the river and leaves it there.
+5.	Man brings the goat back to the starting side.
+6.	Man takes the grass across the river and leaves it with the tiger.
+7.	Man returns alone to the starting side.
+8.	Man takes the goat across the river again.
+9.	End
+
+(b) Temple & Flower Problem
+Problem Identification
+• The boy plucks 1 flower before entering the first temple.
+• He must bathe in the pond before entering each temple, and each bath
+doubles the number of flowers he has.
+• He offers equal flowers in each of the 3 temples.
+• He ends up with zero flowers after the third temple.
+Algorithm (Stepwise Execution)
+1. Boy plucks 1 flower before entering the first temple.
+2. Takes a bath in the pond —> flowers double to 2.
+3. Offers X flowers in the first temple.
+4. Takes a bath in the pond —> remaining flowers double.
+5. Offers X flowers in the second temple.
+6. Takes a bath in the pond —> remaining flowers double.
+7. Offers X flowers in the third temple.
+8.Ends up with zero flowers.
+
+Solving for X:
+Let the flowers he offers in each temple be X.
+After plucking, he has: 1 flower.
+
+First bath: Flowers double —> 2.
+After first temple: (2 - X) remain.
+Second bath: Remaining flowers double —>(2 - X) * 2
+After second temple: (4 - 2X - X) = 4 - 3X remain.
+Third bath: Flowers double —> (4 - 3X) * 2 = 8 - 6X.
+After third temple: (8 - 6X - X) = 8 - 7X = 0.
+Solving for X:
+8-7x=0
+7X=8
+x = 8/7
+Since X must be a whole number, the problem needs 1 initial flower to be
+replaced with a higher starting number (possibly 2 or 4) to make it work.

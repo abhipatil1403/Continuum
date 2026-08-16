@@ -1,0 +1,6 @@
+# 43. Program to Insert and Delete from Dictionary
+
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+my_dict['d'] = 4  # Insert
+del my_dict['a']  # Delete
+print("Updated Dictionary:", my_dict)
