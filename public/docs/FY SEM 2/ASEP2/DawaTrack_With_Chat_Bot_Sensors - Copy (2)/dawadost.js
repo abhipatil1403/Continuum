@@ -2,7 +2,7 @@
 // Supabase configuration is now in config.js
 
 // Gemini API configuration
-const GEMINI_API_KEY = 'AIzaSyCR9OTWFs97bVrY-f3MbRqcjNqrDHn3hqQ'; //API key taken from gemini studio
+const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY'; //API key taken from gemini studio
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 
 class DawaDost {

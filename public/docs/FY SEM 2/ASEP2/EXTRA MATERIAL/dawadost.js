@@ -4,7 +4,7 @@ const SUPABASE_URL = 'https://illirjtiwudwybtxvvbf.supabase.co';
 const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
 
 // Gemini API configuration
-const GEMINI_API_KEY = 'AIzaSyCR9OTWFs97bVrY-f3MbRqcjNqrDHn3hqQ';
+const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent';
 
 class DawaDost {
@@ -2090,3 +2090,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 60000); // Check every minute
 }); // End of DOMContentLoaded event listener
+
